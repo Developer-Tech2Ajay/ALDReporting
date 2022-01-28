@@ -35,8 +35,8 @@
             // 
             // lblWelcomeText
             // 
-            this.lblWelcomeText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblWelcomeText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWelcomeText.AutoSize = true;
             this.lblWelcomeText.BackColor = System.Drawing.Color.Transparent;
@@ -50,18 +50,18 @@
             // 
             // leftMenu1
             // 
-            this.leftMenu1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.leftMenu1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.leftMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.leftMenu1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.leftMenu1.Location = new System.Drawing.Point(0, 60);
             this.leftMenu1.Name = "leftMenu1";
-            this.leftMenu1.Size = new System.Drawing.Size(218, 619);
+            this.leftMenu1.Size = new System.Drawing.Size(400, 619);
             this.leftMenu1.TabIndex = 3;
             // 
             // ucHeader1
             // 
-            this.ucHeader1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ucHeader1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucHeader1.BackColor = System.Drawing.Color.White;
             this.ucHeader1.Location = new System.Drawing.Point(0, 0);

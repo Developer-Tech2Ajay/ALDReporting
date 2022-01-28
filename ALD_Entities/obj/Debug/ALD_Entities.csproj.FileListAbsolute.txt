@@ -1,0 +1,17 @@
+D:\freelance\ALD\ALDReporting\ALD_Entities\bin\Debug\ALD_Entities.dll
+D:\freelance\ALD\ALDReporting\ALD_Entities\bin\Debug\ALD_Entities.pdb
+D:\freelance\ALD\ALDReporting\ALD_Entities\bin\Debug\Newtonsoft.Json.dll
+D:\freelance\ALD\ALDReporting\ALD_Entities\bin\Debug\Newtonsoft.Json.xml
+D:\freelance\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csproj.CoreCompileInputs.cache
+D:\freelance\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csproj.CopyComplete
+D:\freelance\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.dll
+D:\freelance\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.pdb
+D:\freelance\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csprojAssemblyReference.cache
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Debug\ALD_Entities.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Debug\ALD_Entities.pdb
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Debug\Newtonsoft.Json.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Debug\Newtonsoft.Json.xml
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csproj.CoreCompileInputs.cache
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csproj.CopyComplete
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.pdb

@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPswd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtboxUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtPswd);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtboxUserName);
             this.panel1.Controls.Add(this.label1);
@@ -87,12 +87,13 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // textBox1
+            // txtPswd
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 177);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtPswd.Location = new System.Drawing.Point(12, 177);
+            this.txtPswd.Name = "txtPswd";
+            this.txtPswd.PasswordChar = '*';
+            this.txtPswd.Size = new System.Drawing.Size(192, 20);
+            this.txtPswd.TabIndex = 5;
             // 
             // label2
             // 
@@ -126,11 +127,11 @@
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.White;
             this.lblLogin.Location = new System.Drawing.Point(82, 65);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(60, 22);
+            this.lblLogin.Size = new System.Drawing.Size(57, 24);
             this.lblLogin.TabIndex = 1;
             this.lblLogin.Text = "Login";
             // 
@@ -168,7 +169,7 @@
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtboxUserName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPswd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;

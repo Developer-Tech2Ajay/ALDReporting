@@ -1,6 +1,10 @@
-﻿using ALDReporting.Reports;
+﻿using ALDReporting.CustomClass;
+using ALDReporting.Reports;
 using System;
+using System.Configuration;
+using System.Text;
 using System.Windows.Forms;
+using ALD_Entities.Util;
 
 namespace ALDReporting
 {
@@ -11,9 +15,6 @@ namespace ALDReporting
             InitializeComponent();
             //FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
-
-
-
         }
 
         private void Login_Load(object sender, System.EventArgs e)
@@ -46,7 +47,7 @@ namespace ALDReporting
         {
             try
             {
-                SetSystemVariable.LoadSystemData();
+                //  SetSystemVariable.LoadSystemData();
             }
             catch (Exception)
             {
@@ -56,8 +57,32 @@ namespace ALDReporting
 
         private bool IsAuthenticated()
         {
-            return true;
+
+            StringBuilder sbMsg = new StringBuilder();
+            if (String.IsNullOrWhiteSpace(Convert.ToString(txtboxUserName.Text)))
+            {
+                sbMsg.AppendLine("Please entry a user name");
+            }
+            else if (Convert.ToString(txtboxUserName.Text) != Convert.ToString(ConfigurationManager.AppSettings["username"]))
+            {
+                sbMsg.AppendLine("Please entry a valid username");
+            }
+            AesOperation.CheckUser(txtboxUserName.Text);
+            if (String.IsNullOrWhiteSpace(Convert.ToString(txtPswd.Text)))
+            {
+                sbMsg.AppendLine("Please entry a password");
+            }
+            else if (Convert.ToString(txtPswd.Text) != Convert.ToString(ConfigurationManager.AppSettings["password"]))
+            {
+                sbMsg.AppendLine("Please entry a valid password");
+            }
+
+            if (sbMsg.Length == 0) return true;
+
+            CustomMessageBox.Custom(sbMsg.ToString());
+            return false;
         }
+
 
 
     }

@@ -1,0 +1,14 @@
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Release\ALD_DAL.dll.config
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Release\ALD_DAL.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Release\ALD_DAL.pdb
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Release\ALD_Entities.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Release\Dapper.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Release\Newtonsoft.Json.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Release\ALD_Entities.pdb
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Release\Dapper.xml
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Release\Newtonsoft.Json.xml
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\obj\Release\ALD_DAL.csprojAssemblyReference.cache
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\obj\Release\ALD_DAL.csproj.CoreCompileInputs.cache
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\obj\Release\ALD_DAL.csproj.CopyComplete
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\obj\Release\ALD_DAL.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\obj\Release\ALD_DAL.pdb

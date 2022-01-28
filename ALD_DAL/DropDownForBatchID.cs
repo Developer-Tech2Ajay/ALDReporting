@@ -11,14 +11,24 @@ namespace ALD_DAL
     {
         public List<AllDropDownData> GetAllDropDownValues()
         {
-            List<AllDropDownData> lstddl = new List<AllDropDownData>();
-            using (SqlConnection conn = new SqlConnection(StaticCommonVariable.connstringReport))
+            try
             {
-                if (conn.State == ConnectionState.Closed)
-                    conn.Open();
-                lstddl = conn.Query<AllDropDownData>("sp_GetAllBatchID").ToList();
+
+                List<AllDropDownData> lstddl = new List<AllDropDownData>();
+                using (SqlConnection conn = new SqlConnection(StaticCommonVariable.connstringReport))
+                {
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+
+                    lstddl = conn.Query<AllDropDownData>("sp_GetAllBatchID").ToList();
+                }
+                return lstddl;
             }
-            return lstddl;
+            catch (System.Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }
