@@ -1,4 +1,6 @@
-﻿namespace ALDReporting.LoadTcReport
+﻿using Entities;
+
+namespace ALDReporting.LoadTcReport
 {
     partial class LTReport
     {
@@ -344,15 +346,15 @@
             // 
             // E_ParameterBindingSource
             // 
-            this.E_ParameterBindingSource.DataSource = typeof(ALD_Entities.E_Parameter);
+            this.E_ParameterBindingSource.DataSource = typeof(E_Parameter);
             // 
             // ProcessReportBindingSource
             // 
-            this.ProcessReportBindingSource.DataSource = typeof(ALD_Entities.ProcessReport.ProcessReport);
+            this.ProcessReportBindingSource.DataSource = typeof(ProcessReport);
             // 
             // AlarmReportBindingSource
             // 
-            this.AlarmReportBindingSource.DataSource = typeof(ALD_Entities.E_AlarmReport.AlarmReport);
+            this.AlarmReportBindingSource.DataSource = typeof(Entities.AlarmReport);
             // 
             // rvRecipe
             // 

@@ -1,4 +1,4 @@
-﻿namespace ALD_Entities
+﻿namespace Entities
 {
     public class AllDropDownData
     {

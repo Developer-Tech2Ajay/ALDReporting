@@ -1,7 +1,8 @@
 ﻿using ALD_DAL;
-using ALD_Entities;
+using Entities;
 using ALDReporting.CustomClass;
 using System;
+using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 
@@ -65,8 +66,7 @@ namespace ALDReporting
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            SystemMessage sm = new SystemMessage();
-            sm = ValidateAndUploadFile();
+            var sm = ValidateAndUploadFile();
         }
 
         private SystemMessage ValidateAndUploadFile()
@@ -86,7 +86,7 @@ namespace ALDReporting
                 else
                 {
                     //Call upload functionality 
-                    sm = UploadFileAndInsertRecordInDB();
+                    sm = UploadFileAndInsertRecordInDb();
 
                 }
             }
@@ -99,67 +99,57 @@ namespace ALDReporting
 
         }
 
-        private SystemMessage UploadFileAndInsertRecordInDB()
+        private SystemMessage UploadFileAndInsertRecordInDb()
         {
-            SystemMessage sm = new SystemMessage();
-            DalProductImages _dal = new DalProductImages();
+            var sm = new SystemMessage();
+            var dal = new DalProductImages();
             try
             {
                 if (CheckEligiabilityForUpload().StatusCode == 0)
                 {
                     string path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
-                    string filename = Convert.ToString(lstFileUpload.Items[0]).Substring(Convert.ToString(lstFileUpload.Items[0]).LastIndexOf("\\") + 1);
-                    string FullPath = path + "\\ProductsImages\\" + filename;
+                    string filename = Convert.ToString(lstFileUpload.Items[0]).Substring(Convert.ToString(lstFileUpload.Items[0]).LastIndexOf("\\", StringComparison.Ordinal) + 1);
+                    string fullPathWithOutFilename = path + "\\ProductsImages\\";
+                    string fullPath = fullPathWithOutFilename + filename;
 
-                    if (!File.Exists(FullPath))
-                    {
-                        File.Copy(Convert.ToString(lstFileUpload.Items[0]), FullPath);
-                    }
-                    sm = _dal.D_CheckEligiabilityForUpload(new ImageUploadForBatch() { BatchID = ReportClass.BatchID, ImageFilePath = FullPath, ImageType = ReportClass.ImageType });
+
+                    Directory.CreateDirectory(fullPathWithOutFilename);
+                    File.Copy(Convert.ToString(lstFileUpload.Items[0]), fullPath);
+
+                    sm = dal.CheckEligibilityForUpload(new ImageUploadForBatch() { BatchID = ReportClass.BatchID, ImageFilePath = fullPath, ImageType = ReportClass.ImageType });
                     // MessageBox.Show(sm.StatusMsg);
 
-                    if (sm.StatusCode == 1)
+                    switch (sm.StatusCode)
                     {
-
-                        var confirmResult = CustomMessageBox.ShowConfimationBox(sm.StatusMsg + ". Are you sure to overwrite??"); // MessageBox.Show(sm.StatusMsg + " Are you sure to overwrite??", "Confirm Overwrite!!", MessageBoxButtons.YesNo);
-                        if (confirmResult == DialogResult.Yes)
-                        {
-                            sm = _dal.D_InsUpdImageForBatchID(new ImageUploadForBatch() { BatchID = ReportClass.BatchID, ImageFilePath = FullPath, ImageType = ReportClass.ImageType, IsOverWrite = true });
-                        }
-                        else
-                        {
-                            // If 'No', do something here.
-                        }
+                        case 1:
+                            {
+                                var confirmResult = CustomMessageBox.ShowConfimationBox(sm.StatusMsg + ". Are you sure to overwrite??"); // MessageBox.Show(sm.StatusMsg + " Are you sure to overwrite??", "Confirm Overwrite!!", MessageBoxButtons.YesNo);
+                                if (confirmResult == DialogResult.No) return null;
+                                sm = dal.D_InsUpdImageForBatchID(new ImageUploadForBatch() { BatchID = ReportClass.BatchID, ImageFilePath = fullPath, ImageType = ReportClass.ImageType, IsOverWrite = true });
+                                break;
+                            }
+                        case 0:
+                            sm = dal.D_InsUpdImageForBatchID(new ImageUploadForBatch() { BatchID = ReportClass.BatchID, ImageFilePath = fullPath, ImageType = ReportClass.ImageType, IsOverWrite = false });
+                            break;
                     }
-                    else if (sm.StatusCode == 0)
-                    {
-                        sm = _dal.D_InsUpdImageForBatchID(new ImageUploadForBatch() { BatchID = ReportClass.BatchID, ImageFilePath = FullPath, ImageType = ReportClass.ImageType, IsOverWrite = false });
-                    }
-
-                    else { }
-
                     if (sm.StatusCode == 0)
                     {
                         MessageBox.Show(sm.StatusMsg);
                         this.Close();
                     }
-
                 }
-
-
-
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return sm;
+
         }
-        /// <summary>
-        /// Check file exist for selected batch id 
-        /// </summary>
-        /// <returns></returns>
+        ///// <summary>
+        ///// Check file exist for selected batch id 
+        ///// </summary>
+        ///// <returns></returns>
         private SystemMessage CheckEligiabilityForUpload()
         {
             SystemMessage _sysMsg = new SystemMessage();
@@ -177,10 +167,10 @@ namespace ALDReporting
 
         private void btnBrowseFile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Only. |*.jpeg; *.jpg; *.png; *.gif;";
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = Convert.ToString(ConfigurationManager.AppSettings["ImageFormat"]);
 
-            DialogResult dr = openFileDialog.ShowDialog();
+            var dr = openFileDialog.ShowDialog();
             AddFileInList(openFileDialog.FileName);
         }
     }

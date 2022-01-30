@@ -1,4 +1,4 @@
-﻿namespace ALD_Entities.E_AlarmReport
+﻿namespace Entities
 {
     public class AlarmReport
     {

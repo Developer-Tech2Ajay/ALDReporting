@@ -1,7 +1,5 @@
-﻿using ALD_Entities.AuditReport;
-using ALD_Entities.E_AlarmReport;
-using ALD_Entities.Util;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Entities;
 
 namespace ALD_DAL
 {

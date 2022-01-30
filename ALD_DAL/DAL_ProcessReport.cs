@@ -1,6 +1,4 @@
-﻿using ALD_Entities.ProcessReport;
-using ALD_Entities.UniformityReport;
-using ALD_Entities.Util;
+﻿using Entities;
 using System.Collections.Generic;
 
 namespace ALD_DAL

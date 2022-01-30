@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ALD_Entities.Util
+namespace Entities
 {
     public static partial class Extensions
     {
@@ -42,7 +42,6 @@ namespace ALD_Entities.Util
             return @this.ToString("g", culture);
         }
 
-        
 
     }
 }

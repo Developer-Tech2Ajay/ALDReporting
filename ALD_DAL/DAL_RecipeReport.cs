@@ -1,14 +1,5 @@
-﻿using System;
+﻿using Entities;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ALD_Entities.E_AlarmReport;
-using ALD_Entities.ProcessReport;
-using ALD_Entities.Recipe;
-using ALD_Entities.Util;
 
 namespace ALD_DAL
 {

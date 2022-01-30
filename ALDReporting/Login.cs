@@ -4,7 +4,7 @@ using System;
 using System.Configuration;
 using System.Text;
 using System.Windows.Forms;
-using ALD_Entities.Util;
+using Entities;
 
 namespace ALDReporting
 {
@@ -57,8 +57,7 @@ namespace ALDReporting
 
         private bool IsAuthenticated()
         {
-
-            StringBuilder sbMsg = new StringBuilder();
+            var sbMsg = new StringBuilder();
             if (String.IsNullOrWhiteSpace(Convert.ToString(txtboxUserName.Text)))
             {
                 sbMsg.AppendLine("Please entry a user name");

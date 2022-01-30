@@ -82,11 +82,11 @@
             // 
             // E_ParameterBindingSource
             // 
-            this.E_ParameterBindingSource.DataSource = typeof(ALD_Entities.E_Parameter);
+            this.E_ParameterBindingSource.DataSource = typeof(Entities.E_Parameter);
             // 
             // ProcessReportBindingSource
             // 
-            this.ProcessReportBindingSource.DataSource = typeof(ALD_Entities.UniformityReport.UniformityReport);
+            this.ProcessReportBindingSource.DataSource = typeof(Entities.UniformityReport);
             // 
             // tabControl1
             // 
@@ -356,7 +356,7 @@
             // 
             // AlarmReportBindingSource
             // 
-            this.AlarmReportBindingSource.DataSource = typeof(ALD_Entities.E_AlarmReport.AlarmReport);
+            this.AlarmReportBindingSource.DataSource = typeof(Entities.AlarmReport);
             // 
             // SystemVariablesBindingSource
             // 

@@ -26,3 +26,7 @@ E:\ClientProjects\ALD\ALDReporting\ALD_DAL\obj\Debug\ALD_DAL.csproj.CoreCompileI
 E:\ClientProjects\ALD\ALDReporting\ALD_DAL\obj\Debug\ALD_DAL.csproj.CopyComplete
 E:\ClientProjects\ALD\ALDReporting\ALD_DAL\obj\Debug\ALD_DAL.dll
 E:\ClientProjects\ALD\ALDReporting\ALD_DAL\obj\Debug\ALD_DAL.pdb
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll

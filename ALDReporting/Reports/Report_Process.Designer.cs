@@ -99,7 +99,7 @@
             // 
             // AlarmReportBindingSource
             // 
-            this.AlarmReportBindingSource.DataSource = typeof(ALD_Entities.E_AlarmReport.AlarmReport);
+            this.AlarmReportBindingSource.DataSource = typeof(Entities.AlarmReport);
             // 
             // reportViewer1
             // 

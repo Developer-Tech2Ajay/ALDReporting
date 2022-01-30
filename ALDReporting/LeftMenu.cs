@@ -1,7 +1,5 @@
 ﻿using ALD_DAL;
-using ALD_Entities;
-using ALD_Entities.E_AlarmReport;
-using ALD_Entities.ProcessReport;
+using Entities;
 using ALDReporting.AlarmReport;
 using ALDReporting.CustomClass;
 using ALDReporting.LoadTcReport;
@@ -12,7 +10,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using ALD_Entities.Util;
+
 
 namespace ALDReporting
 {
@@ -72,38 +70,37 @@ namespace ALDReporting
             FillAllData();
         }
 
+        protected void BindDropDown(ComboBox comboBox, List<AllDropDownData> lstAllDropDownData)
+        {
+            comboBox.DataSource = lstAllDropDownData;
+            comboBox.DisplayMember = "Batch_Id";
+            comboBox.ValueMember = "ID";
+        }
         private void FillAllData()
         {
             //Call Procedure
-            DropDownForBatchId dalBatchid;
-            dalBatchid = new DropDownForBatchId();
-            List<AllDropDownData> lstDdl = dalBatchid.GetAllDropDownValues();
+            var dalBatch = new DropDownForBatchId();
+            List<AllDropDownData> lstDdl = dalBatch.GetAllDropDownValues();
 
-
-            //Fill Process Drop Down
-            var lstDdlProcess = new List<AllDropDownData>();
-            if (lstDdl.Count > 0)
-                lstDdlProcess = lstDdl.AsEnumerable().Where(x => x.Batch_Select == Constants.BatchTypeProcess || string.IsNullOrWhiteSpace(x.Batch_Select)).ToList();
-
-            cmbProcessBatch.DataSource = lstDdlProcess;
-            cmbProcessBatch.DisplayMember = "Batch_Id";
-            cmbProcessBatch.ValueMember = "ID";
+            if (lstDdl.Count <= 0) return;
+            var lstDdlProcess = lstDdl.AsEnumerable().Where(x =>
+                x.Batch_Select == Constants.BatchTypeProcess || string.IsNullOrWhiteSpace(x.Batch_Select)).ToList();
+            BindDropDown(cmbProcessBatch, lstDdlProcess);
 
             //Fill Uniformity
-            var lstDdlUniformity = new List<AllDropDownData>();
-            if (lstDdl.Count > 0)
-                lstDdlUniformity = lstDdl.AsEnumerable().Where(x => x.Batch_Select == Constants.BatchTypeUniformity || string.IsNullOrWhiteSpace(x.Batch_Select)).ToList();
-            cmbUniformityBatch.DataSource = lstDdlUniformity;
-            cmbUniformityBatch.DisplayMember = "Batch_Id";
-            cmbUniformityBatch.ValueMember = "ID";
+            var lstDdlUniformity = lstDdl.AsEnumerable().Where(x =>
+                    x.Batch_Select == Constants.BatchTypeUniformity ||
+                    string.IsNullOrWhiteSpace(x.Batch_Select))
+                .ToList();
+            BindDropDown(cmbUniformityBatch, lstDdlUniformity);
+
 
             //Fill Uniformity
-            var lstDdlLoadTc = new List<AllDropDownData>();
-            if (lstDdl.Count > 0)
-                lstDdlLoadTc = lstDdl.AsEnumerable().Where(x => x.Batch_Select ==Constants.BatchTypeLoadTc || string.IsNullOrWhiteSpace(x.Batch_Select)).ToList();
-            cmbLoadTCBatch.DataSource = lstDdlLoadTc;
-            cmbLoadTCBatch.DisplayMember = "Batch_Id";
-            cmbLoadTCBatch.ValueMember = "ID";
+            var lstDdlLoadTc = lstDdl.AsEnumerable().Where(x =>
+                    x.Batch_Select == Constants.BatchTypeLoadTc || string.IsNullOrWhiteSpace(x.Batch_Select))
+                .ToList();
+            BindDropDown(cmbLoadTCBatch, lstDdlLoadTc);
+
         }
 
 
@@ -193,21 +190,21 @@ namespace ALDReporting
             return _sMsg;
         }
 
-        private SystemMessage CheckProductImages(string BatchId)
+        private SystemMessage CheckProductImages(string batchId)
         {
             SystemMessage sMsg = new SystemMessage();
             try
             {
                 DalProductImages dAlProductImages = new DalProductImages();
                 if (dAlProductImages == null) throw new ArgumentNullException(nameof(dAlProductImages));
-                var images = dAlProductImages.GetProductImages(new ProcessReport_RQ() { BatchId = BatchId });
+                var images = dAlProductImages.GetProductImages(new ProcessReport_RQ() { BatchId = batchId });
                 sMsg.StatusCode = 2;
                 if (images != null && string.IsNullOrWhiteSpace(images.ImageAfter) && string.IsNullOrWhiteSpace(images.ImageBefore))
-                     sMsg.StatusMsg = "Product Images are not uploaded! Want to skip ??";
+                    sMsg.StatusMsg = "Product Images are not uploaded! Want to skip ??";
                 else if (images != null && string.IsNullOrWhiteSpace(images.ImageBefore))
-                     sMsg.StatusMsg = "Product Before Image is not uploaded! Want to skip ??";
+                    sMsg.StatusMsg = "Product Before Image is not uploaded! Want to skip ??";
                 else if (images != null && string.IsNullOrWhiteSpace(images.ImageAfter))
-                     sMsg.StatusMsg = "Product After Image is not uploaded! Want to skip ??";
+                    sMsg.StatusMsg = "Product After Image is not uploaded! Want to skip ??";
                 else if (images == null)
                     sMsg.StatusMsg = "Product Image are not uploaded! Want to skip ??";
                 else
@@ -225,8 +222,7 @@ namespace ALDReporting
 
         private void btnUploadImagesBefore_Click(object sender, System.EventArgs e)
         {
-            SystemMessage sm = new SystemMessage();
-            sm = CheckSelectedBatch(StaticValues.Image_Before);
+            var sm = CheckSelectedBatch(StaticValues.Image_Before);
             if (sm.StatusCode == 0)
             {
                 UploadFile uploadFile = new UploadFile(StaticValues.Image_Before);
@@ -289,31 +285,31 @@ namespace ALDReporting
 
         }
 
-        public void ResetBatchIDs(string RptType)
+        public void ResetBatchIDs(string rptType)
         {
-            var lstCKBox = new List<ComboBox>();
-            lstCKBox.Add(cmbProcessBatch);
-            lstCKBox.Add(cmbUniformityBatch);
-            lstCKBox.Add(cmbLoadTCBatch);
+            var lstCkBox = new List<ComboBox>();
+            lstCkBox.Add(cmbProcessBatch);
+            lstCkBox.Add(cmbUniformityBatch);
+            lstCkBox.Add(cmbLoadTCBatch);
 
-            switch (RptType)
+            switch (rptType)
             {
                 case StaticValues.ReportType_Process:
                     {
-                        lstCKBox.Remove(cmbProcessBatch);
-                        SetIndex(lstCKBox);
+                        lstCkBox.Remove(cmbProcessBatch);
+                        SetIndex(lstCkBox);
                         break;
                     }
                 case StaticValues.ReportType_Uniformity:
                     {
-                        lstCKBox.Remove(cmbUniformityBatch);
-                        SetIndex(lstCKBox);
+                        lstCkBox.Remove(cmbUniformityBatch);
+                        SetIndex(lstCkBox);
                         break;
                     }
                 case StaticValues.ReportType_LoadTC:
                     {
-                        lstCKBox.Remove(cmbLoadTCBatch);
-                        SetIndex(lstCKBox);
+                        lstCkBox.Remove(cmbLoadTCBatch);
+                        SetIndex(lstCkBox);
                         break;
                     }
                 default:

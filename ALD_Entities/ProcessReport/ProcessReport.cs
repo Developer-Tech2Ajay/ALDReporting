@@ -1,4 +1,4 @@
-﻿namespace ALD_Entities.ProcessReport
+﻿namespace Entities
 {
     public class ProcessReport
     {

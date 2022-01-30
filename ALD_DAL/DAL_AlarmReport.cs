@@ -1,5 +1,4 @@
-﻿using ALD_Entities.E_AlarmReport;
-using ALD_Entities.Util;
+﻿using Entities;
 using System.Collections.Generic;
 
 namespace ALD_DAL

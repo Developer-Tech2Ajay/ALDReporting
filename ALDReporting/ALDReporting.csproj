@@ -78,6 +78,7 @@
     <Compile Include="AlarmReport\Report_Alarm.Designer.cs">
       <DependentUpon>Report_Alarm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonUtils.cs" />
     <Compile Include="CustomClass\CustomMessageBox.cs" />
     <Compile Include="dsAuditLogReport.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,6 +137,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ReportMethods\DataAlarm.cs" />
+    <Compile Include="ReportMethods\DataChart.cs" />
+    <Compile Include="ReportMethods\DataRecipe.cs" />
     <Compile Include="Reports\Index.cs">
       <SubType>Form</SubType>
     </Compile>

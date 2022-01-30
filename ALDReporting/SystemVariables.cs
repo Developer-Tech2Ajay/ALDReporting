@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.Reflection;
 
 namespace ALDReporting
@@ -14,11 +15,11 @@ namespace ALDReporting
         public string PrintDate { get; set; }
         public string BatchID { get; set; }
 
-        public SystemVariables(string strBatchId, string printedBy)
+        public SystemVariables(string batchId, string printedBy)
         {
-            BatchID = strBatchId;
+            BatchID = batchId;
             PrintedBy = printedBy;
-            PrintDate = DateTime.Now.ToString();
+            PrintDate = DateTime.Now.ToString(CultureInfo.InvariantCulture);
             SystemName = Convert.ToString(ConfigurationManager.AppSettings["SystemName"]);
             SystemSerialNo = Convert.ToString(ConfigurationManager.AppSettings["SystemSerialNo"]);
         }

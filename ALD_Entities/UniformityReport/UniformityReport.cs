@@ -1,4 +1,4 @@
-﻿namespace ALD_Entities.UniformityReport
+﻿namespace Entities
 {
     public class UniformityReport
     {

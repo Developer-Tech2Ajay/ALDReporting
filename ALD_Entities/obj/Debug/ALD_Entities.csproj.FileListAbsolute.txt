@@ -15,3 +15,8 @@ E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csproj.Co
 E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csproj.CopyComplete
 E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.dll
 E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.pdb
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Debug\Microsoft.SqlServer.Types.dll
