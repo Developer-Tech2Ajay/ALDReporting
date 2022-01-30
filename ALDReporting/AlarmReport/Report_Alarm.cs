@@ -65,7 +65,7 @@ namespace ALDReporting.AlarmReport
         {
             try
             {
-                DAL_AlarmReport dal_Ar = new DAL_AlarmReport();
+                DalAlarmReport dal_Ar = new DalAlarmReport();
                 RemoveExportOptionOtherThanPDF();
                 var result = dal_Ar.GetAlarmReports(new Report_RQ() { StartDateTime = AR_StartDateTime, EndDateTime = AR_EndDateTime });
                 var dtAlarmReport = CustomSystemClass.ToDataTable<ALD_Entities.E_AlarmReport.AlarmReport>(result);

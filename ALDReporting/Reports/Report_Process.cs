@@ -32,13 +32,13 @@ namespace ALDReporting.Reports
         {
             InitializeComponent();
         }
-        public Report_Process(string strBatchID)
+        public Report_Process(string strBatchId)
         {
             InitializeComponent();
-            BatchID = strBatchID;
+            BatchID = strBatchId;
             GetProductImages();
         }
-        public Report_Process(Report_RQ report_RQ)
+        public Report_Process(Report_RQ reportRq)
         {
             InitializeComponent();
             //BatchID = strBatchID;
@@ -51,7 +51,7 @@ namespace ALDReporting.Reports
         {
             try
             {
-                DAL_ProductImages dAL_ProductImages = new DAL_ProductImages();
+                DalProductImages dAL_ProductImages = new DalProductImages();
                 var imgs = dAL_ProductImages.GetProductImages(new ProcessReport_RQ() { BatchId = BatchID });
                 if (imgs != null)
                 {
@@ -75,8 +75,8 @@ namespace ALDReporting.Reports
         }
         private DataTable GetProcessReportData()
         {
-            DAL_ProcessReport _dal = new DAL_ProcessReport();
-            var result = _dal.GetProcessDeatilsByBatchID(new ALD_Entities.ProcessReport.ProcessReport_RQ() { BatchId = BatchID });
+            DalProcessReport _dal = new DalProcessReport();
+            var result = _dal.GetProcessDetailsByBatchId(new ALD_Entities.ProcessReport.ProcessReport_RQ() { BatchId = BatchID });
             var dtProcessReport = CustomSystemClass.ToDataTable<ALD_Entities.ProcessReport.ProcessReport>(result);
             //Making copy for Graph
             dtForGraph = dtProcessReport.Copy();
@@ -86,7 +86,7 @@ namespace ALDReporting.Reports
 
         private DataTable GetParametersDetails()
         {
-            DAL_Parameter dAL_Parameter = new DAL_Parameter();
+            DalParameter dAL_Parameter = new DalParameter();
             var parameters = dAL_Parameter.D_GetParameterByBatchID(new ALD_Entities.ProcessReport.ProcessReport_RQ() { BatchId = BatchID });
             var dtParameter = CustomSystemClass.ToDataTable<E_Parameter>(parameters);
             if (string.IsNullOrWhiteSpace(parameters[0].Process_Start_Date_Time))
@@ -161,7 +161,7 @@ namespace ALDReporting.Reports
                 }
 
             }
-            var dal_rr = new DAL_RecipeReport();
+            var dal_rr = new DalRecipeReport();
             var RecipeReports = dal_rr.GetRecipeReports(new ProcessReport_RQ() { BatchId = BatchID });
             var RecipeDetails = dal_rr.GetRecipeDetails(new ProcessReport_RQ() { BatchId = BatchID });
 
@@ -300,7 +300,7 @@ namespace ALDReporting.Reports
 
         private void ReportBind_Alarm()
         {
-            DAL_AlarmReport dal_Ar = new DAL_AlarmReport();
+            DalAlarmReport dal_Ar = new DalAlarmReport();
             // var result = dal_Ar.GetAlarmReports(new Report_RQ() { StartDateTime = Convert.ToDateTime("2020/03/01 12:00:00"), EndDateTime = Convert.ToDateTime("2020/03/25 12:00:00") });
             var result = dal_Ar.GetAlarmReports(new Report_RQ() { StartDateTime = process_startDateTime, EndDateTime = process_endDateTime });
             var dtAlarmReport = CustomSystemClass.ToDataTable<ALD_Entities.E_AlarmReport.AlarmReport>(result);

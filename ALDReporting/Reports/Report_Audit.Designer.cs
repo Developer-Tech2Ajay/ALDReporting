@@ -1,6 +1,6 @@
 ﻿namespace ALDReporting.Reports
 {
-    partial class Report_Audit
+    partial class ReportAudit
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "Report_Audit";
+            this.Name = "ReportAudit";
             this.Text = "Report_Audit";
             this.Load += new System.EventHandler(this.Report_Audit_Load);
             this.ResumeLayout(false);

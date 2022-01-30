@@ -118,7 +118,6 @@ E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.Login.res
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.ProjectResource.resources
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.Properties.Resources.resources
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.Reports.Index.resources
-E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.Reports.Report_Audit.resources
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.Reports.Report_Process.resources
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.ucHeader.resources
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.ucTimeTickerControl.resources
@@ -200,3 +199,4 @@ E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\zh-CHT\Microsoft.Repor
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.csproj.CopyComplete
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.exe
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.pdb
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.Reports.ReportAudit.resources

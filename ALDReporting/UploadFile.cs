@@ -102,7 +102,7 @@ namespace ALDReporting
         private SystemMessage UploadFileAndInsertRecordInDB()
         {
             SystemMessage sm = new SystemMessage();
-            DAL_ProductImages _dal = new DAL_ProductImages();
+            DalProductImages _dal = new DalProductImages();
             try
             {
                 if (CheckEligiabilityForUpload().StatusCode == 0)

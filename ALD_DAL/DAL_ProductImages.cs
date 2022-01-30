@@ -5,85 +5,74 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using ALD_Entities.Util;
 
 namespace ALD_DAL
 {
-    public class DAL_ProductImages
+    public class DalProductImages
     {
-        public SystemMessage D_CheckEligiabilityForUpload(ImageUploadForBatch _obj)
+        public SystemMessage D_CheckEligiabilityForUpload(ImageUploadForBatch obj)
         {
             SystemMessage systemMessage = new SystemMessage();
             try
             {
-                using (SqlConnection conn = new SqlConnection(StaticCommonVariable.connstringReport))
+                using (SqlConnection conn = new SqlConnection(Constants.ConnStringReport))
                 {
                     if (conn.State == ConnectionState.Closed)
                         conn.Open();
                     DynamicParameters queryParameters = new DynamicParameters();
-                    queryParameters.Add("@BatchID", _obj.BatchID);
-                    queryParameters.Add("@ImageType", _obj.ImageType);
+                    queryParameters.Add("@BatchID", obj.BatchID);
+                    queryParameters.Add("@ImageType", obj.ImageType);
 
-                    systemMessage = conn.Query<SystemMessage>("sp_CheckImageIsExistForBatchID", queryParameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
-                    //if (systemMessage.StatusCode == 0)
-                    //    systemMessage = D_InsUpdImageForBatchID(_obj);
+                    systemMessage = conn.Query<SystemMessage>(Constants.CheckImageIsExistForBatchId, queryParameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+
                 }
             }
             catch (Exception ex)
             {
-                systemMessage.StatusCode = 2;
-                systemMessage.StatusMsg = ex.Message;
+                if (systemMessage != null)
+                {
+                    systemMessage.StatusCode = 2;
+                    systemMessage.StatusMsg = ex.Message;
+                }
             }
             return systemMessage;
         }
 
 
-        public SystemMessage D_InsUpdImageForBatchID(ImageUploadForBatch _obj)
+        public SystemMessage D_InsUpdImageForBatchID(ImageUploadForBatch obj)
         {
             SystemMessage systemMessage = new SystemMessage();
             try
             {
-                using (SqlConnection conn = new SqlConnection(StaticCommonVariable.connstringReport))
+                using (SqlConnection conn = new SqlConnection(Constants.ConnStringReport))
                 {
                     if (conn.State == ConnectionState.Closed)
                         conn.Open(); var param = new DynamicParameters();
-                    param.Add("@BatchID", dbType: DbType.String, value: _obj.BatchID, direction: ParameterDirection.Input);
-                    param.Add("@ImageType", dbType: DbType.String, value: _obj.ImageType, direction: ParameterDirection.Input);
-                    param.Add("@ImageFilePath", dbType: DbType.String, value: _obj.ImageFilePath, direction: ParameterDirection.Input);
-                    param.Add("@IsOverWrite", dbType: DbType.Boolean, value: _obj.IsOverWrite, direction: ParameterDirection.Input);
+                    param.Add("@BatchID", dbType: DbType.String, value: obj.BatchID, direction: ParameterDirection.Input);
+                    param.Add("@ImageType", dbType: DbType.String, value: obj.ImageType, direction: ParameterDirection.Input);
+                    param.Add("@ImageFilePath", dbType: DbType.String, value: obj.ImageFilePath, direction: ParameterDirection.Input);
+                    param.Add("@IsOverWrite", dbType: DbType.Boolean, value: obj.IsOverWrite, direction: ParameterDirection.Input);
 
-                    systemMessage = conn.Query<SystemMessage>("sp_InsUpdImageForBatchID", param, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    systemMessage = conn.Query<SystemMessage>(Constants.InsUpdImageForBatchId, param, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                systemMessage.StatusCode = 2;
-                systemMessage.StatusMsg = ex.Message;
+                if (systemMessage != null)
+                {
+                    systemMessage.StatusCode = 2;
+                    systemMessage.StatusMsg = ex.Message;
+                }
             }
             return systemMessage;
         }
 
-        public ProductImages GetProductImages(ProcessReport_RQ _obj)
+        public ProductImages GetProductImages(ProcessReport_RQ obj)
         {
-            ProductImages pi = new ProductImages();
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(StaticCommonVariable.connstringReport))
-                {
-                    if (conn.State == ConnectionState.Closed)
-                        conn.Open();
-                    DynamicParameters queryParameters = new DynamicParameters();
-                    queryParameters.Add("@BatchID", _obj.BatchId);
-
-                    pi = conn.Query<ProductImages>("sp_GetImagesByBatchID", queryParameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
-                }
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return pi;
+            var lst = DbAccess.GetDataByBatch<ProductImages>(obj.BatchId, Constants.GetImagesByBatchId,
+                Constants.ConnStringReport);
+            return lst.FirstOrDefault();
         }
     }
 }

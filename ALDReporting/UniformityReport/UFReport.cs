@@ -39,7 +39,7 @@ namespace ALDReporting.UniformityReport
         {
             try
             {
-                DAL_ProductImages dAL_ProductImages = new DAL_ProductImages();
+                DalProductImages dAL_ProductImages = new DalProductImages();
                 var imgs = dAL_ProductImages.GetProductImages(new ProcessReport_RQ() { BatchId = BatchID });
                 if (imgs != null)
                 {
@@ -97,7 +97,7 @@ namespace ALDReporting.UniformityReport
                 }
 
             }
-            var dal_rr = new DAL_RecipeReport();
+            var dal_rr = new DalRecipeReport();
             var RecipeReports = dal_rr.GetRecipeReports(new ProcessReport_RQ() { BatchId = BatchID });
             var RecipeDetails = dal_rr.GetRecipeDetails(new ProcessReport_RQ() { BatchId = BatchID });
 
@@ -117,8 +117,8 @@ namespace ALDReporting.UniformityReport
         }
         private DataTable GetUniformityReportData()
         {
-            DAL_ProcessReport _dal = new DAL_ProcessReport();
-            var result = _dal.GetUniformityDeatilsByBatchID(new ALD_Entities.UniformityReport.UniformityReport_RQ() { BatchId = BatchID });
+            DalProcessReport _dal = new DalProcessReport();
+            var result = _dal.GetUniformityDetailsByBatchId(new ALD_Entities.UniformityReport.UniformityReport_RQ() { BatchId = BatchID });
             var dtUniformityReport = CustomSystemClass.ToDataTable<ALD_Entities.UniformityReport.UniformityReport>(result);
             //Making copy for Graph
             dtForGraph = dtUniformityReport.Copy();
@@ -127,7 +127,7 @@ namespace ALDReporting.UniformityReport
         }
         private DataTable GetParametersDetails()
         {
-            DAL_Parameter dAL_Parameter = new DAL_Parameter();
+            DalParameter dAL_Parameter = new DalParameter();
             var parameters = dAL_Parameter.D_GetParameterByBatchID(new ALD_Entities.ProcessReport.ProcessReport_RQ() { BatchId = BatchID });
             var dtParameter = CustomSystemClass.ToDataTable<E_Parameter>(parameters);
             dtForGraphCondition = dtParameter.Copy();
@@ -253,7 +253,7 @@ namespace ALDReporting.UniformityReport
         }
         private void ReportBind_Alarm()
         {
-            DAL_AlarmReport dal_Ar = new DAL_AlarmReport();
+            DalAlarmReport dal_Ar = new DalAlarmReport();
             //var result = dal_Ar.GetAlarmReports(new Report_RQ() { StartDateTime = Convert.ToString(Convert.ToDateTime("2020/03/01 12:00:00")), EndDateTime = Convert.ToString(Convert.ToDateTime("2020/03/25 12:00:00")) });
             var result = dal_Ar.GetAlarmReports(new Report_RQ() { StartDateTime = process_startDateTime, EndDateTime = process_endDateTime });
             var dtAlarmReport = CustomSystemClass.ToDataTable<ALD_Entities.E_AlarmReport.AlarmReport>(result);

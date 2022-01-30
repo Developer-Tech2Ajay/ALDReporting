@@ -1,29 +1,24 @@
-﻿using ALD_Entities.E_AlarmReport;
+﻿using ALD_DAL;
+using ALD_Entities.AuditReport;
+using ALD_Entities.E_AlarmReport;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ALD_DAL;
-using ALD_Entities.AuditReport;
 
 namespace ALDReporting.Reports
 {
-    public partial class Report_Audit : Form
+    public partial class ReportAudit : Form
     {
         public DateTime SDateTime { get; set; }
         public DateTime EDateTime{ get; set; }
-        public Report_Audit()
+        public ReportAudit()
         {
             InitializeComponent();
         }
-        public Report_Audit(Report_RQ reportRq)
+        public ReportAudit(Report_RQ reportRq)
         {
             InitializeComponent();
             SDateTime = reportRq.StartDateTime;
@@ -53,7 +48,7 @@ namespace ALDReporting.Reports
         {
             try
             {
-                DAL_AuditReport dal = new DAL_AuditReport();
+                DalAuditReport dal = new DalAuditReport();
                var result = dal.GetAuditReports(new Report_RQ() { StartDateTime =SDateTime , EndDateTime = EDateTime });
                 var dtAuditReport = CustomSystemClass.ToDataTable<AuditReport>(result);
                 this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("dsAuditReport", dtAuditReport));
