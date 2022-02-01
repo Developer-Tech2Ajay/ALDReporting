@@ -17,7 +17,7 @@ namespace ALDReporting.AlarmReport
         {
             InitializeComponent();
         }
-        public Report_Alarm(Report_RQ obj)
+        public Report_Alarm(ReportRq obj)
         {
             InitializeComponent();
             ArStartDateTime = obj.StartDateTime;
@@ -35,7 +35,7 @@ namespace ALDReporting.AlarmReport
             try
             {
                 var dalAr = new DalAlarmReport();
-                var result = dalAr.GetAlarmReports(new Report_RQ() { StartDateTime = ArStartDateTime, EndDateTime = ArEndDateTime });
+                var result = dalAr.GetAlarmReports(new ReportRq() { StartDateTime = ArStartDateTime, EndDateTime = ArEndDateTime });
                 var dtAlarmReport = CustomSystemClass.ToDataTable<Entities.AlarmReport>(result);
                 CommonUtils.AddDataSource(reportViewer1, "dsReport_Alarm", dtAlarmReport);
                 this.reportViewer1.LocalReport.DisplayName = "Alarm Report";

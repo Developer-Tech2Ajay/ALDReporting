@@ -385,7 +385,7 @@ namespace ALDReporting
             DateTime dtStartDateTime = dtPStartDate.Value.Date + dtStartTime.Value.TimeOfDay;
             DateTime dtEndDateTime = dtPEndDate.Value.Date + dtEndTime.Value.TimeOfDay;
 
-            var req = new Report_RQ() { StartDateTime = dtStartDateTime, EndDateTime = dtEndDateTime };
+            var req = new ReportRq() { StartDateTime = dtStartDateTime, EndDateTime = dtEndDateTime };
 
             if (rdbtnAlarmRpt.Checked)
             {

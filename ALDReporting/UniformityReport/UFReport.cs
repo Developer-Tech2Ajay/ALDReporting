@@ -81,7 +81,7 @@ namespace ALDReporting.UniformityReport
         {
             DalParameter dAL_Parameter = new DalParameter();
             var parameters = dAL_Parameter.D_GetParameterByBatchID(new ProcessReport_RQ() { BatchId = BatchID });
-            var dtParameter = CustomSystemClass.ToDataTable<E_Parameter>(parameters);
+            var dtParameter = CustomSystemClass.ToDataTable<EParameter>(parameters);
             dtForGraphCondition = dtParameter.Copy();
             process_startDateTime = Convert.ToDateTime(parameters[0].Process_Start_Date_Time);
             process_endDateTime = Convert.ToDateTime(parameters[0].Process_End_Date_Time);

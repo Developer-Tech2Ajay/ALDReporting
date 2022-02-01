@@ -1,6 +1,6 @@
 ﻿namespace Entities
 {
-    public class E_Parameter
+    public class EParameter
     {
         public int ID { get; set; }
         public string Press_Unit_Select { get; set; }

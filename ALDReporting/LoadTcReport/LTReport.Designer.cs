@@ -346,7 +346,7 @@ namespace ALDReporting.LoadTcReport
             // 
             // E_ParameterBindingSource
             // 
-            this.E_ParameterBindingSource.DataSource = typeof(E_Parameter);
+            this.E_ParameterBindingSource.DataSource = typeof(EParameter);
             // 
             // ProcessReportBindingSource
             // 

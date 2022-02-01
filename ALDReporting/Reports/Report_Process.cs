@@ -1,16 +1,11 @@
 ﻿using ALD_DAL;
 using ALDReporting.CustomClass;
+using ALDReporting.ReportMethods;
 using Entities;
-using Microsoft.Reporting.WinForms;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Drawing.Printing;
-using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
-using ALDReporting.ReportMethods;
 
 namespace ALDReporting.Reports
 {
@@ -34,7 +29,7 @@ namespace ALDReporting.Reports
             BatchID = strBatchId;
             GetProductImages();
         }
-        public Report_Process(Report_RQ reportRq)
+        public Report_Process(ReportRq reportRq)
         {
             InitializeComponent();
             //BatchID = strBatchID;
@@ -53,14 +48,13 @@ namespace ALDReporting.Reports
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
         private DataTable GetProcessReportData()
         {
-            DalProcessReport _dal = new DalProcessReport();
-            var result = _dal.GetProcessDetailsByBatchId(new ProcessReport_RQ() { BatchId = BatchID });
+            DalProcessReport dal = new DalProcessReport();
+            var result = dal.GetProcessDetailsByBatchId(new ProcessReport_RQ() { BatchId = BatchID });
             var dtProcessReport = CustomSystemClass.ToDataTable<ProcessReport>(result);
             //Making copy for Graph
             dtForGraph = dtProcessReport.Copy();
@@ -72,7 +66,7 @@ namespace ALDReporting.Reports
         {
             var dAlParameter = new DalParameter();
             var parameters = dAlParameter.D_GetParameterByBatchID(new ProcessReport_RQ() { BatchId = BatchID });
-            var dtParameter = CustomSystemClass.ToDataTable<E_Parameter>(parameters);
+            var dtParameter = CustomSystemClass.ToDataTable<EParameter>(parameters);
             if (string.IsNullOrWhiteSpace(parameters[0].Process_Start_Date_Time))
             {
                 CustomMessageBox.Custom(BatchID + " batch don't have start date and time. Please connect system administrators !");

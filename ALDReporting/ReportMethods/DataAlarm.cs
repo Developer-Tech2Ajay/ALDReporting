@@ -21,7 +21,7 @@ namespace ALDReporting.ReportMethods
         {
             rptViewer.RemoveOptionToDownload();
             var dalAr = new DalAlarmReport();
-            var result = dalAr.GetAlarmReports(new Report_RQ() { StartDateTime = dtStart, EndDateTime = dtEnd });
+            var result = dalAr.GetAlarmReports(new ReportRq() { StartDateTime = dtStart, EndDateTime = dtEnd });
             var dtAlarmReport = CustomSystemClass.ToDataTable<Entities.AlarmReport>(result);
             CommonUtils.AddDataSource(rptViewer, "dsReport_Alarm", dtAlarmReport);
         }

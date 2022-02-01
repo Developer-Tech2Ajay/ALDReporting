@@ -25,13 +25,13 @@ namespace ALD_DAL
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
             return (List<T>)lstObj;
         }
-        public static List<T> GetDataByDuration<T>(Report_RQ reportRq, string spName,string conString)
+        public static List<T> GetDataByDuration<T>(ReportRq reportRq, string spName,string conString)
         {
             var lstObj = new List<T>();
             try
@@ -46,7 +46,7 @@ namespace ALD_DAL
                     lstObj = conn.Query<T>(spName, queryParameters, commandType: CommandType.StoredProcedure).ToList();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -64,7 +64,7 @@ namespace ALD_DAL
                     lstObj = conn.Query<T>(spName, commandType: CommandType.StoredProcedure).ToList();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

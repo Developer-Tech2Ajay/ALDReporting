@@ -12,7 +12,7 @@ namespace ALDReporting
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimerTick.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            lblTimerTick.Text = DateTime.Now.ToString();
         }
     }
 }

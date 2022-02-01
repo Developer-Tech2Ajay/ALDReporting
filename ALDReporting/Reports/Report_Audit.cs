@@ -13,7 +13,7 @@ namespace ALDReporting.Reports
         {
             InitializeComponent();
         }
-        public ReportAudit(Report_RQ reportRq)
+        public ReportAudit(ReportRq reportRq)
         {
             InitializeComponent();
             SDateTime = reportRq.StartDateTime;
@@ -32,7 +32,7 @@ namespace ALDReporting.Reports
             try
             {
                 var dal = new DalAuditReport();
-                var result = dal.GetAuditReports(new Report_RQ() { StartDateTime = SDateTime, EndDateTime = EDateTime });
+                var result = dal.GetAuditReports(new ReportRq() { StartDateTime = SDateTime, EndDateTime = EDateTime });
                 var dtAuditReport = CustomSystemClass.ToDataTable<AuditReport>(result);
                 this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("dsAuditReport", dtAuditReport));
                 this.reportViewer1.LocalReport.DisplayName = "Audit Report";

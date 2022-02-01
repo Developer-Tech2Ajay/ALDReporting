@@ -139,11 +139,12 @@
     </Compile>
     <Compile Include="ReportMethods\DataAlarm.cs" />
     <Compile Include="ReportMethods\DataChart.cs" />
+    <Compile Include="ReportMethods\DataProcessByDuration.cs" />
     <Compile Include="ReportMethods\DataRecipe.cs" />
-    <Compile Include="Reports\Index.cs">
+    <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\Index.Designer.cs">
+    <Compile Include="Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\Report_Audit.cs">
@@ -214,9 +215,10 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\AuditReport.rdlc" />
-    <EmbeddedResource Include="Reports\Index.resx">
+    <EmbeddedResource Include="Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProcessByDuration.rdlc" />
     <EmbeddedResource Include="Reports\Process_Report_Alarm.rdlc" />
     <EmbeddedResource Include="Reports\RecipeReport.rdlc" />
     <EmbeddedResource Include="Reports\Report_Audit.resx">
@@ -225,7 +227,6 @@
     <EmbeddedResource Include="Reports\Report_Process.resx">
       <DependentUpon>Report_Process.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Rpt_Process - Copy.rdlc" />
     <EmbeddedResource Include="Reports\Rpt_Process.rdlc" />
     <EmbeddedResource Include="ucHeader.resx">
       <DependentUpon>ucHeader.cs</DependentUpon>
@@ -264,6 +265,7 @@
     </None>
     <None Include="libs\SystemDetails.json" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ALDReporting.ReportMethods.DataProcessByDuration.datasource" />
     <None Include="Properties\DataSources\ALD_Entities.AlarmReport.AlarmReport.datasource" />
     <None Include="Properties\DataSources\ALD_Entities.E_AlarmReport.AlarmReport.datasource" />
     <None Include="Properties\DataSources\ALD_Entities.E_Parameter.datasource" />

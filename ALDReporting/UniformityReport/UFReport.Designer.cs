@@ -82,7 +82,7 @@
             // 
             // E_ParameterBindingSource
             // 
-            this.E_ParameterBindingSource.DataSource = typeof(Entities.E_Parameter);
+            this.E_ParameterBindingSource.DataSource = typeof(Entities.EParameter);
             // 
             // ProcessReportBindingSource
             // 

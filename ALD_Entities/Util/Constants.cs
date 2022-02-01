@@ -26,7 +26,10 @@ namespace Entities
 
         public static string BatchTypeProcess = "Process";
         public static string BatchTypeUniformity = "Uniformity";
-        public static string BatchTypeLoadTc = "Process";
+        public static string BatchTypeLoadTc = "LoadTC";
+
+
+        public static string PrintedBy = "Admin";
 
     }
 }
