@@ -200,3 +200,7 @@ E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.csproj.Co
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.exe
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.pdb
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.Reports.ReportAudit.resources
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\ALDReporting.exe.manifest
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\ALDReporting.application
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.exe.manifest
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.application

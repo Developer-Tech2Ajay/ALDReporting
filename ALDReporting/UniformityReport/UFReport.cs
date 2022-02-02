@@ -57,14 +57,15 @@ namespace ALDReporting.UniformityReport
         {
 
             ReportBind();
+            this.reportViewer1.RemoveOptionToDownload();
             this.reportViewer1.RefreshReport();
             var dataAlarm = new DataAlarm(reportViewer2, process_startDateTime, process_endDateTime);
+            this.reportViewer2.RemoveOptionToDownload();
             this.reportViewer2.RefreshReport();
             var dataRecipe = new DataRecipe(rvRecipe, BatchID);
+            this.rvRecipe.RemoveOptionToDownload();
             this.rvRecipe.RefreshReport();
-
             LoadChart();
-            this.rvRecipe.RefreshReport();
         }
 
         private DataTable GetUniformityReportData()

@@ -465,7 +465,7 @@
         <KeepTogether>true</KeepTogether>
         <DataSetName>dsReport_Alarm</DataSetName>
         <Height>0.75in</Height>
-        <Width>7.89583in</Width>
+        <Width>7.89582in</Width>
         <Style>
           <Border>
             <Style>None</Style>
