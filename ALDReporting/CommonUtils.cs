@@ -16,7 +16,7 @@ namespace ALDReporting
         {
             List<string> allowedDownloadFormate = Convert.ToString(ConfigurationManager.AppSettings["AllowedDownloadFormat"]).Split(',').ToList();
             List<RenderingExtension> extension = @this.LocalReport.ListRenderingExtensions().ToList();
-            foreach (var item in extension)
+            foreach (var item in extension) 
             {
                 if (allowedDownloadFormate.Contains(item.Name))
                     continue;
