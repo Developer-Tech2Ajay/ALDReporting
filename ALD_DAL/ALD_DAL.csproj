@@ -48,11 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DalCorrectionFactor.cs" />
     <Compile Include="DAL_AlarmReport.cs" />
     <Compile Include="DAL_AuditReport.cs" />
     <Compile Include="DAL_ProductImages.cs" />
     <Compile Include="DAL_Parameter.cs" />
-    <Compile Include="DAL_ProcessReport.cs" />
+    <Compile Include="DalProcessReport.cs" />
     <Compile Include="DAL_RecipeReport.cs" />
     <Compile Include="DbAccess.cs" />
     <Compile Include="DropDownForBatchID.cs" />
@@ -65,7 +66,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,8 +32,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.E_ParameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ProcessReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -58,10 +56,11 @@
             this.chartProcess = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.rvRecipe = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.E_ParameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ProcessReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AlarmReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnUniformityImagesPrint = new System.Windows.Forms.Button();
             this.SystemVariablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.E_ParameterBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProcessReportBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -76,17 +75,11 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProcess)).BeginInit();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.E_ParameterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProcessReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlarmReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SystemVariablesBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // E_ParameterBindingSource
-            // 
-            this.E_ParameterBindingSource.DataSource = typeof(Entities.EParameter);
-            // 
-            // ProcessReportBindingSource
-            // 
-            this.ProcessReportBindingSource.DataSource = typeof(Entities.UniformityReport);
             // 
             // tabControl1
             // 
@@ -100,6 +93,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1003, 622);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
@@ -161,12 +155,13 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panel4.Controls.Add(this.btnUniformityImagesPrint);
             this.panel4.Controls.Add(this.lblS1);
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(234, 92);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(492, 24);
+            this.panel4.Size = new System.Drawing.Size(989, 24);
             this.panel4.TabIndex = 6;
             // 
             // lblS1
@@ -184,9 +179,10 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(234, 119);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 240);
+            this.panel1.Size = new System.Drawing.Size(995, 596);
             this.panel1.TabIndex = 5;
             // 
             // panel3
@@ -195,9 +191,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.picAfterPStart);
-            this.panel3.Location = new System.Drawing.Point(250, 0);
+            this.panel3.Location = new System.Drawing.Point(498, 29);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(239, 232);
+            this.panel3.Size = new System.Drawing.Size(460, 500);
             this.panel3.TabIndex = 1;
             // 
             // label2
@@ -212,9 +208,11 @@
             // 
             // picAfterPStart
             // 
+            this.picAfterPStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picAfterPStart.Location = new System.Drawing.Point(3, 35);
             this.picAfterPStart.Name = "picAfterPStart";
-            this.picAfterPStart.Size = new System.Drawing.Size(233, 196);
+            this.picAfterPStart.Size = new System.Drawing.Size(445, 527);
+            this.picAfterPStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picAfterPStart.TabIndex = 0;
             this.picAfterPStart.TabStop = false;
             // 
@@ -224,9 +222,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.picBeforePStart);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(3, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(241, 232);
+            this.panel2.Size = new System.Drawing.Size(460, 562);
             this.panel2.TabIndex = 0;
             // 
             // label1
@@ -241,9 +239,11 @@
             // 
             // picBeforePStart
             // 
+            this.picBeforePStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picBeforePStart.Location = new System.Drawing.Point(3, 32);
             this.picBeforePStart.Name = "picBeforePStart";
-            this.picBeforePStart.Size = new System.Drawing.Size(235, 199);
+            this.picBeforePStart.Size = new System.Drawing.Size(450, 490);
+            this.picBeforePStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.picBeforePStart.TabIndex = 1;
             this.picBeforePStart.TabStop = false;
             // 
@@ -256,7 +256,7 @@
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(995, 596);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Trands";
+            this.tabPage4.Text = "Trend";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // panel5
@@ -353,10 +353,29 @@
             this.rvRecipe.ServerReport.BearerToken = null;
             this.rvRecipe.Size = new System.Drawing.Size(995, 596);
             this.rvRecipe.TabIndex = 0;
+            this.rvRecipe.Load += new System.EventHandler(this.rvRecipe_Load);
+            // 
+            // E_ParameterBindingSource
+            // 
+            this.E_ParameterBindingSource.DataSource = typeof(Entities.EParameter);
+            // 
+            // ProcessReportBindingSource
+            // 
+            this.ProcessReportBindingSource.DataSource = typeof(Entities.UniformityReport);
             // 
             // AlarmReportBindingSource
             // 
             this.AlarmReportBindingSource.DataSource = typeof(Entities.AlarmReport);
+            // 
+            // btnUniformityImagesPrint
+            // 
+            this.btnUniformityImagesPrint.Location = new System.Drawing.Point(881, 1);
+            this.btnUniformityImagesPrint.Name = "btnUniformityImagesPrint";
+            this.btnUniformityImagesPrint.Size = new System.Drawing.Size(75, 20);
+            this.btnUniformityImagesPrint.TabIndex = 4;
+            this.btnUniformityImagesPrint.Text = "Print";
+            this.btnUniformityImagesPrint.UseVisualStyleBackColor = true;
+            this.btnUniformityImagesPrint.Click += new System.EventHandler(this.btnUniformityImagesPrint_Click);
             // 
             // SystemVariablesBindingSource
             // 
@@ -372,8 +391,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uniformity Report";
             this.Load += new System.EventHandler(this.UFReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.E_ParameterBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProcessReportBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -392,6 +409,8 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProcess)).EndInit();
             this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.E_ParameterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProcessReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlarmReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SystemVariablesBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -414,12 +433,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblS1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox picAfterPStart;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox picBeforePStart;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblPEndTime;
         private System.Windows.Forms.Label label5;
@@ -428,5 +441,12 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartProcess;
         private System.Windows.Forms.TabPage tabPage5;
         private Microsoft.Reporting.WinForms.ReportViewer rvRecipe;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox picAfterPStart;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picBeforePStart;
+        private System.Windows.Forms.Button btnUniformityImagesPrint;
     }
 }

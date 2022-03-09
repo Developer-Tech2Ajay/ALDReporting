@@ -1,75 +1,21 @@
 ﻿using System;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace Entities
 {
     public class AesOperation
     {
-
-        public static string EncryptString(string plainText)
-        {
-            string key = "626275584000000000";
-            byte[] iv = new byte[16];
-            byte[] array;
-
-            using (Aes aes = Aes.Create())
-            {
-                aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv;
-
-                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    using (CryptoStream cryptoStream =
-                           new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
-                        {
-                            streamWriter.Write(plainText);
-                        }
-
-                        array = memoryStream.ToArray();
-                    }
-                }
-            }
-
-            return Convert.ToBase64String(array);
-        }
-
-        public static string DecryptString(string cipherText)
-        {
-            string key = "626275584000000000";
-            byte[] iv = new byte[16];
-            byte[] buffer = Convert.FromBase64String(cipherText);
-
-            using (Aes aes = Aes.Create())
-            {
-                aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv;
-                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-
-                using (MemoryStream memoryStream = new MemoryStream(buffer))
-                {
-                    using (CryptoStream cryptoStream =
-                           new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
-                        {
-                            return streamReader.ReadToEnd();
-                        }
-                    }
-                }
-            }
-        }
-
         public static void CheckUser(string user)
         {
-            DateTime expdate = new DateTime(2022, 02, 15);
-            if (DateTime.Now >= expdate)
+            Random r = new Random();
+            int rInt = r.Next(750, 850); //for ints
+            DateTime expdate = DateTime.Now.AddDays(rInt);
+
+            var machineName = System.Environment.MachineName;
+            if (!Constants.machineNames.Contains(machineName))
                 throw new InvalidException(user);
+
+            if (DateTime.Now >= expdate)
+                throw new InvalidException(machineName);
         }
     }
     [Serializable]
@@ -77,7 +23,7 @@ namespace Entities
     {
         public InvalidException() { }
         public InvalidException(string name)
-            : base(String.Format("Null pointer object exception"))
+            : base(String.Format("Exception has occured." + name + " Please connect system administrator"))
         {
 
         }

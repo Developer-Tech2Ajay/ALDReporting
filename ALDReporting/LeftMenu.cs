@@ -16,6 +16,7 @@ namespace ALDReporting
 {
     public partial class LeftMenu : UserControl
     {
+        private ProcessByDuration _instancePrDur = null;
         private Report_Process _instancePr = null;
         private UFReport _instanceUr = null;
         private LTReport _instanceLtr = null;
@@ -197,7 +198,7 @@ namespace ALDReporting
             {
                 DalProductImages dAlProductImages = new DalProductImages();
                 if (dAlProductImages == null) throw new ArgumentNullException(nameof(dAlProductImages));
-                var images = dAlProductImages.GetProductImages(new ProcessReport_RQ() { BatchId = batchId });
+                var images = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = batchId });
                 sMsg.StatusCode = 2;
                 if (images != null && string.IsNullOrWhiteSpace(images.ImageAfter) && string.IsNullOrWhiteSpace(images.ImageBefore))
                     sMsg.StatusMsg = "Product Images are not uploaded! Want to skip ??";
@@ -399,8 +400,8 @@ namespace ALDReporting
             }
             else if (rdbtnProcRpt.Checked)
             {
-                _instancePr = new Report_Process(req);
-                _instancePr.Show();
+                _instancePrDur = new ProcessByDuration(req);
+                _instancePrDur.Show();
             }
             else
             {

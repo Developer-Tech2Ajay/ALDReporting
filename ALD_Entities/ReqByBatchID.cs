@@ -1,6 +1,6 @@
 ﻿namespace Entities
 {
-    public class UniformityReport_RQ
+    public class ReqByBatchId
     {
         public string BatchId { get; set; }
     }

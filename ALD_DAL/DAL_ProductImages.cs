@@ -11,7 +11,7 @@ namespace ALD_DAL
         public SystemMessage D_InsUpdImageForBatchID(ImageUploadForBatch obj) =>
             DbAccess.InsUpdImageForBatchId(obj);
 
-        public ProductImages GetProductImages(ProcessReport_RQ obj)
+        public ProductImages GetProductImages(ReqByBatchId obj)
         {
             var lst =
                 DbAccess.GetDataByBatch<ProductImages>(obj.BatchId, Constants.GetImagesByBatchId, Constants.ConnStringReport);

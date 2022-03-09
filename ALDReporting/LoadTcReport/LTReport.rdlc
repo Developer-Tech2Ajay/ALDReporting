@@ -2358,9 +2358,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox24</rd:DefaultName>
               <Top>0.57569in</Top>
-              <Left>0.10661in</Left>
+              <Left>0.11703in</Left>
               <Height>0.2in</Height>
-              <Width>2.27986in</Width>
+              <Width>2.57187in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2392,7 +2392,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value>=First(Fields!PrintDate.Value, "dsSystemVariables")</Value>
+                      <Value>=First(Fields!Process_Start_Date_Time.Value, "dsParameter")</Value>
                       <Style>
                         <FontSize>8.5pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2404,9 +2404,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox24</rd:DefaultName>
               <Top>1.07639in</Top>
-              <Left>0.10348in</Left>
+              <Left>0.1139in</Left>
               <Height>0.2in</Height>
-              <Width>2.27986in</Width>
+              <Width>2.57187in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2545,9 +2545,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox24</rd:DefaultName>
               <Top>0.57222in</Top>
-              <Left>2.50069in</Left>
+              <Left>2.68402in</Left>
               <Height>0.2in</Height>
-              <Width>3.14684in</Width>
+              <Width>3.02184in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -2580,7 +2580,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value>=First(Fields!SystemName.Value, "dsSystemVariables")</Value>
+                      <Value>=First(Fields!Run_Lot_No.Value, "dsParameter")</Value>
                       <Style>
                         <FontSize>8.5pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2592,9 +2592,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox24</rd:DefaultName>
               <Top>0.82726in</Top>
-              <Left>0.10661in</Left>
+              <Left>0.11703in</Left>
               <Height>0.2in</Height>
-              <Width>2.27986in</Width>
+              <Width>2.57187in</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -2627,7 +2627,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value>=First(Fields!BatchID.Value, "dsSystemVariables")</Value>
+                      <Value>=First(Fields!Recipe_name.Value, "dsParameter")</Value>
                       <Style>
                         <FontSize>8.5pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2639,9 +2639,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox24</rd:DefaultName>
               <Top>0.82726in</Top>
-              <Left>2.51062in</Left>
+              <Left>2.69395in</Left>
               <Height>0.2in</Height>
-              <Width>3.14684in</Width>
+              <Width>3.02184in</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -2674,7 +2674,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value>=First(Fields!PrintDate.Value, "dsSystemVariables")</Value>
+                      <Value>=First(Fields!Process_End_Date_Time.Value, "dsParameter")</Value>
                       <Style>
                         <FontSize>8.5pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2686,9 +2686,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox24</rd:DefaultName>
               <Top>1.07223in</Top>
-              <Left>2.51285in</Left>
+              <Left>2.68577in</Left>
               <Height>0.2in</Height>
-              <Width>3.13468in</Width>
+              <Width>3.00968in</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>
@@ -2783,6 +2783,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>c4a10d90-b82c-42c9-bf69-fbb4e15d1cad</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="rptdsParameter">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>4b1de930-32da-4068-ab16-5b1bad55f852</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="dsSystemVariables">
@@ -2816,39 +2823,6 @@
         <rd:DataSetName>ALDReporting</rd:DataSetName>
         <rd:TableName>SystemVariables</rd:TableName>
         <rd:ObjectDataSourceType>ALDReporting.SystemVariables, ALDReporting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="dsParameter">
-      <Query>
-        <DataSourceName>ALD_Entities</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="ID">
-          <DataField>ID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="LD_Select">
-          <DataField>LD_Select</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Press_Unit_Select">
-          <DataField>Press_Unit_Select</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TC_Select">
-          <DataField>TC_Select</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Temp_Unit_Select">
-          <DataField>Temp_Unit_Select</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>ALD_Entities</rd:DataSetName>
-        <rd:TableName>E_Parameter</rd:TableName>
-        <rd:ObjectDataSourceType>ALD_Entities.E_Parameter, ALD_Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="dsProcessReport">
@@ -2970,6 +2944,58 @@
         <rd:DataSetName>ALD_Entities.ProcessReport</rd:DataSetName>
         <rd:TableName>ProcessReport</rd:TableName>
         <rd:ObjectDataSourceType>ALD_Entities.ProcessReport.ProcessReport, ALD_Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="dsParameter">
+      <Query>
+        <DataSourceName>rptdsParameter</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Press_Unit_Select">
+          <DataField>Press_Unit_Select</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Temp_Unit_Select">
+          <DataField>Temp_Unit_Select</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TC_Select">
+          <DataField>TC_Select</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="LD_Select">
+          <DataField>LD_Select</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Process_Start_Date_Time">
+          <DataField>Process_Start_Date_Time</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Process_End_Date_Time">
+          <DataField>Process_End_Date_Time</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Run_Lot_No">
+          <DataField>Run_Lot_No</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Recipe_name">
+          <DataField>Recipe_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>rptdsParameter</rd:DataSetName>
+        <rd:SchemaPath>E:\ClientProjects\ALD\ALDReporting\ALDReporting\rptdsParameter.xsd</rd:SchemaPath>
+        <rd:TableName>sp_GetParameterByBatchID</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>sp_GetParameterByBatchIDTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

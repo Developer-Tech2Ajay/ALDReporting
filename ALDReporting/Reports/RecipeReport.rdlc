@@ -1122,13 +1122,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>1.09375in</Height>
     <Style />
   </Body>
   <Width>9.86384in</Width>
   <Page>
     <PageHeader>
-      <Height>1.19062cm</Height>
+      <Height>0.46875in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1139,7 +1139,22 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Recipe Name :  </Value>
+                  <Value>Recipe Name</Value>
+                  <Style>
+                    <FontSize>8.5pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Gray</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value xml:space="preserve"> </Value>
+                  <Style>
+                    <FontSize>8.5pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>:  </Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -1147,6 +1162,7 @@
                 <TextRun>
                   <Value>=First(Fields!Recipe_Name.Value,"dsRecipe")</Value>
                   <Style>
+                    <FontSize>8pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1158,7 +1174,7 @@
           <Top>0.3175cm</Top>
           <Left>0.3175cm</Left>
           <Height>0.68255cm</Height>
-          <Width>6.11188cm</Width>
+          <Width>7.19667cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1177,7 +1193,15 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Creation DateTime :  </Value>
+                  <Value>Creation DateTime</Value>
+                  <Style>
+                    <FontSize>8.5pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Gray</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value> :  </Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -1185,6 +1209,7 @@
                 <TextRun>
                   <Value>=First(Fields!RecipeDateTime.Value,"dsRecipe")</Value>
                   <Style>
+                    <FontSize>8pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1194,7 +1219,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.3175cm</Top>
-          <Left>7.10406cm</Left>
+          <Left>7.80256cm</Left>
           <Height>0.68255cm</Height>
           <Width>7.35542cm</Width>
           <ZIndex>1</ZIndex>
@@ -1216,13 +1241,13 @@
         </Border>
       </Style>
     </PageHeader>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
-    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <PageHeight>8.27in</PageHeight>
+    <PageWidth>11.69in</PageWidth>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
+    <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1348,6 +1373,6 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>503631b9-8fe6-4428-bf51-dd252c8c55d9</rd:ReportID>
 </Report>

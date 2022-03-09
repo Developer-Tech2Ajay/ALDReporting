@@ -27,7 +27,7 @@ namespace ALDReporting.Reports
         {
             InitializeComponent();
             BatchID = strBatchId;
-            GetProductImages();
+           // GetProductImages();
         }
         public Report_Process(ReportRq reportRq)
         {
@@ -41,7 +41,7 @@ namespace ALDReporting.Reports
             try
             {
                 DalProductImages dAlProductImages = new DalProductImages();
-                var imgs = dAlProductImages.GetProductImages(new ProcessReport_RQ() { BatchId = BatchID });
+                var imgs = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = BatchID });
                 if (imgs == null) return;
                 picBeforePStart.ImageLocation = imgs.ImageBefore;
                 picAfterPStart.ImageLocation = imgs.ImageAfter;
@@ -53,8 +53,8 @@ namespace ALDReporting.Reports
         }
         private DataTable GetProcessReportData()
         {
-            DalProcessReport dal = new DalProcessReport();
-            var result = dal.GetProcessDetailsByBatchId(new ProcessReport_RQ() { BatchId = BatchID });
+            var dal = new DalReport();
+            var result = dal.GetProcessDetailsByBatchId(new ReqByBatchId() { BatchId = BatchID });
             var dtProcessReport = CustomSystemClass.ToDataTable<ProcessReport>(result);
             //Making copy for Graph
             dtForGraph = dtProcessReport.Copy();
@@ -65,7 +65,7 @@ namespace ALDReporting.Reports
         private DataTable GetParametersDetails()
         {
             var dAlParameter = new DalParameter();
-            var parameters = dAlParameter.D_GetParameterByBatchID(new ProcessReport_RQ() { BatchId = BatchID });
+            var parameters = dAlParameter.D_GetParameterByBatchID(new ReqByBatchId() { BatchId = BatchID });
             var dtParameter = CustomSystemClass.ToDataTable<EParameter>(parameters);
             if (string.IsNullOrWhiteSpace(parameters[0].Process_Start_Date_Time))
             {
@@ -92,7 +92,7 @@ namespace ALDReporting.Reports
             if (dtParameter == null) return;
             var dtProcessReport = GetProcessReportData();
             if (dtProcessReport == null) return;
-            var dtSystemVariables =CommonUtils.GetSystemDetails(BatchID);
+            var dtSystemVariables = CommonUtils.GetSystemDetails(BatchID);
             if (dtSystemVariables == null) return;
             CommonUtils.AddDataSource(reportViewer1, "dsProcessReport", dtProcessReport);
             CommonUtils.AddDataSource(reportViewer1, "dsSystemVariables", dtSystemVariables);
@@ -102,20 +102,24 @@ namespace ALDReporting.Reports
 
         private void Report_Process_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.RemoveOptionToDownload();
             ReportBind();
             this.reportViewer1.RefreshReport();
-            LoadChart();
-            DataRecipe = new DataRecipe(rvRecipe, BatchID);
-            this.rvRecipe.RefreshReport();
+            //LoadChart();
+            //DataRecipe = new DataRecipe(this.rvRecipe, BatchID);
         }
+
+       
 
 
         private void btnPrintProcesRpt_Click(object sender, EventArgs e)
         {
             ReportBind();
             this.reportViewer1.PrintDialog();
+            AlarmReport();
             this.RV_ProcessReportAlarm.PrintDialog();
+            LoadChart();
+            DataRecipe = new DataRecipe(this.rvRecipe, BatchID);
+            this.rvRecipe.PrintDialog();
             PageSetupDialog setupDlg = new PageSetupDialog();
             PrintDocument printDoc = new PrintDocument();
             setupDlg.Document = printDoc;
@@ -128,16 +132,59 @@ namespace ALDReporting.Reports
         }
         private void LoadChart()
         {
-            lblPStartDateTime.Text = Convert.ToString(dtForGraphCondition.Rows[0]["Process_Start_Date_Time"]);
-            lblPEndTime.Text = Convert.ToString(dtForGraphCondition.Rows[0]["Process_Start_Date_Time"]);
+            lblStartDateTime.Text = Convert.ToString(dtForGraphCondition.Rows[0]["Process_Start_Date_Time"]);
+            lblPEndDateTime.Text = Convert.ToString(dtForGraphCondition.Rows[0]["Process_End_Date_Time"]);
             var chart = new DataChart(chartProcess, dtForGraph, dtForGraphCondition, parameter_Batch_Select);
+        }
+        private void AlarmReport()
+        {
+           
         }
 
         private void RV_ProcessReportAlarm_Load(object sender, EventArgs e)
         {
-            var dataAlarm = new DataAlarm(RV_ProcessReportAlarm, process_startDateTime, process_endDateTime);
-            this.RV_ProcessReportAlarm.RefreshReport();
+           // AlarmReport();
         }
 
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            switch (e.TabPageIndex)
+            {
+                case 0:
+                    {
+                        break;
+                    }
+                case 1:
+                    {
+                        var dataAlarm = new DataAlarm(RV_ProcessReportAlarm, process_startDateTime, process_endDateTime);
+                        this.RV_ProcessReportAlarm.RefreshReport();
+                        break;
+                    }
+                case 2:
+                    {
+                        GetProductImages();
+                        break;
+                    }
+                case 3:
+                    {
+                        LoadChart();
+                        break;
+                    }
+                case 4:
+                    {
+                        var dataRecipe = new DataRecipe(rvRecipe, BatchID);
+                        this.rvRecipe.RefreshReport();
+                        //LoadRecipe();
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
     }
 }

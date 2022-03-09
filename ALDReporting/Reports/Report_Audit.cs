@@ -22,7 +22,7 @@ namespace ALDReporting.Reports
 
         private void Report_Audit_Load(object sender, EventArgs e)
         {
-            reportViewer1.RemoveOptionToDownload();
+           // reportViewer1.RemoveOptionToDownload();
             ReportBind();
             this.reportViewer1.RefreshReport();
         }

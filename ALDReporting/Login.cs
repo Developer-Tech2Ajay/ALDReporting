@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Text;
 using System.Windows.Forms;
 using Entities;
+using ALD_DAL;
 
 namespace ALDReporting
 {
@@ -62,21 +63,27 @@ namespace ALDReporting
             {
                 sbMsg.AppendLine("Please entry a user name");
             }
-            else if (Convert.ToString(txtboxUserName.Text) != Convert.ToString(ConfigurationManager.AppSettings["username"]))
-            {
-                sbMsg.AppendLine("Please entry a valid username");
-            }
+            //else if (Convert.ToString(txtboxUserName.Text) != Convert.ToString(ConfigurationManager.AppSettings["username"]))
+            //{
+            //    sbMsg.AppendLine("Please entry a valid username");
+            //}
             AesOperation.CheckUser(txtboxUserName.Text);
             if (String.IsNullOrWhiteSpace(Convert.ToString(txtPswd.Text)))
             {
                 sbMsg.AppendLine("Please entry a password");
             }
-            else if (Convert.ToString(txtPswd.Text) != Convert.ToString(ConfigurationManager.AppSettings["password"]))
-            {
-                sbMsg.AppendLine("Please entry a valid password");
-            }
+            //else if (Convert.ToString(txtPswd.Text) != Convert.ToString(ConfigurationManager.AppSettings["password"]))
+            //{
+            //    sbMsg.AppendLine("Please entry a valid password");
+            //}
 
-            if (sbMsg.Length == 0) return true;
+            if (sbMsg.Length == 0)
+            {
+                if (DbAccess.GetAuth(txtboxUserName.Text.Trim(), txtPswd.Text.Trim(), Constants.GetAuth,Constants.ConnStringReport))
+                    return true;
+                else
+                    sbMsg.AppendLine("Please entry a valid user name and password");
+            }
 
             CustomMessageBox.Custom(sbMsg.ToString());
             return false;

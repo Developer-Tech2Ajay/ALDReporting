@@ -9,6 +9,9 @@
         public string LD_Select { get; set; }
         public string Process_Start_Date_Time { get; set; }
         public string Process_End_Date_Time { get; set; }
+        public string Run_Lot_No { get; set; }
+        public string Recipe_name { get; set; }
+
 
     }
 }

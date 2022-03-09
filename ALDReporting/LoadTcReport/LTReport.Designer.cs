@@ -57,11 +57,11 @@ namespace ALDReporting.LoadTcReport
             this.label3 = new System.Windows.Forms.Label();
             this.chartProcess = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.rvRecipe = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SystemVariablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.E_ParameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ProcessReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AlarmReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rvRecipe = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -97,6 +97,7 @@ namespace ALDReporting.LoadTcReport
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1195, 596);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
@@ -340,22 +341,6 @@ namespace ALDReporting.LoadTcReport
             this.tabPage5.Text = "Recipe";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // SystemVariablesBindingSource
-            // 
-            this.SystemVariablesBindingSource.DataSource = typeof(ALDReporting.SystemVariables);
-            // 
-            // E_ParameterBindingSource
-            // 
-            this.E_ParameterBindingSource.DataSource = typeof(EParameter);
-            // 
-            // ProcessReportBindingSource
-            // 
-            this.ProcessReportBindingSource.DataSource = typeof(ProcessReport);
-            // 
-            // AlarmReportBindingSource
-            // 
-            this.AlarmReportBindingSource.DataSource = typeof(Entities.AlarmReport);
-            // 
             // rvRecipe
             // 
             this.rvRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -365,6 +350,22 @@ namespace ALDReporting.LoadTcReport
             this.rvRecipe.ServerReport.BearerToken = null;
             this.rvRecipe.Size = new System.Drawing.Size(1187, 570);
             this.rvRecipe.TabIndex = 0;
+            // 
+            // SystemVariablesBindingSource
+            // 
+            this.SystemVariablesBindingSource.DataSource = typeof(ALDReporting.SystemVariables);
+            // 
+            // E_ParameterBindingSource
+            // 
+            this.E_ParameterBindingSource.DataSource = typeof(Entities.EParameter);
+            // 
+            // ProcessReportBindingSource
+            // 
+            this.ProcessReportBindingSource.DataSource = typeof(Entities.ProcessReport);
+            // 
+            // AlarmReportBindingSource
+            // 
+            this.AlarmReportBindingSource.DataSource = typeof(Entities.AlarmReport);
             // 
             // LTReport
             // 

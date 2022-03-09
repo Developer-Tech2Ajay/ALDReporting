@@ -25,7 +25,7 @@ namespace ALDReporting.AlarmReport
         }
         private void Report_Alarm_Load(object sender, EventArgs e)
         {
-            reportViewer1.RemoveOptionToDownload();
+           // reportViewer1.RemoveOptionToDownload();
             ReportBind();
             this.reportViewer1.RefreshReport();
         }

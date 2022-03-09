@@ -25,7 +25,7 @@ namespace ALD_DAL
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -64,7 +64,7 @@ namespace ALD_DAL
                     lstObj = conn.Query<T>(spName, commandType: CommandType.StoredProcedure).ToList();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -124,6 +124,30 @@ namespace ALD_DAL
                 }
             }
             return systemMessage;
+        }
+
+        public static bool GetAuth(string uname, string pswd,string spName,string conString)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    DynamicParameters queryParameters = new DynamicParameters();
+                    queryParameters.Add("@uname", uname);
+                    queryParameters.Add("@pswd", pswd);
+                    var isAuth= conn.Query<int>(spName, queryParameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    if (isAuth == 1)
+                        return true;
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 

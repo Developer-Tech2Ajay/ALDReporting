@@ -29,7 +29,7 @@ namespace ALDReporting.LoadTcReport
         {
             InitializeComponent();
             BatchID = strBatchID;
-            GetProductImages();
+          //  GetProductImages();
 
         }
 
@@ -38,7 +38,7 @@ namespace ALDReporting.LoadTcReport
             try
             {
                 DalProductImages dAlProductImages = new DalProductImages();
-                var imgs = dAlProductImages.GetProductImages(new ProcessReport_RQ() { BatchId = BatchID });
+                var imgs = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = BatchID });
                 if (imgs == null) return;
                 picBeforePStart.ImageLocation = imgs.ImageBefore;
                 picAfterPStart.ImageLocation = imgs.ImageAfter;
@@ -54,23 +54,23 @@ namespace ALDReporting.LoadTcReport
         #region Get Data For Reports - Uniformity and Draw
         private void LTReport_Load(object sender, EventArgs e)
         {
-            reportViewer1.RemoveOptionToDownload();
-            reportViewer2.RemoveOptionToDownload();
-            rvRecipe.RemoveOptionToDownload();
+            //reportViewer1.RemoveOptionToDownload();
+            //reportViewer2.RemoveOptionToDownload();
+            //rvRecipe.RemoveOptionToDownload();
 
             ReportBind();
             this.reportViewer1.RefreshReport();
-            var dataAlarm = new DataAlarm(reportViewer2, Convert.ToDateTime(process_startDateTime), Convert.ToDateTime(process_endDateTime));
-            this.reportViewer2.RefreshReport();
-            LoadChart();
-            var dataRecipe = new DataRecipe(rvRecipe, BatchID);
-            this.rvRecipe.RefreshReport();
+            //var dataAlarm = new DataAlarm(reportViewer2, Convert.ToDateTime(process_startDateTime), Convert.ToDateTime(process_endDateTime));
+            //this.reportViewer2.RefreshReport();
+            //LoadChart();
+            //var dataRecipe = new DataRecipe(rvRecipe, BatchID);
+            //this.rvRecipe.RefreshReport();
         }
 
-        private DataTable GetUniformityReportData()
+        private DataTable GetLoadTcReportData()
         {
-            var dal = new DalProcessReport();
-            var result = dal.GetUniformityDetailsByBatchId(new UniformityReport_RQ() { BatchId = BatchID });
+            var dal = new DalReport();
+            var result = dal.GetLoadTcDetailsByBatchId(new ReqByBatchId() { BatchId = BatchID });
             var dtUniformityReport = CustomSystemClass.ToDataTable<Entities.UniformityReport>(result);
             //Making copy for Graph
             dtForGraph = dtUniformityReport.Copy();
@@ -80,7 +80,7 @@ namespace ALDReporting.LoadTcReport
         private DataTable GetParametersDetails()
         {
             var dAlParameter = new DalParameter();
-            var parameters = dAlParameter.D_GetParameterByBatchID(new ProcessReport_RQ() { BatchId = BatchID });
+            var parameters = dAlParameter.D_GetParameterByBatchID(new ReqByBatchId() { BatchId = BatchID });
             var dtParameter = CustomSystemClass.ToDataTable<EParameter>(parameters);
             dtForGraphCondition = dtParameter.Copy();
             process_startDateTime = parameters[0].Process_Start_Date_Time;
@@ -101,7 +101,7 @@ namespace ALDReporting.LoadTcReport
         {
             // TODO: This line of code loads data into the 'reportDataSet.sp_GetProcessDeatilsByBatchID' table. You can move, or remove it, as needed.
             //Get DataSet
-            var dtProcessReport = GetUniformityReportData();
+            var dtProcessReport = GetLoadTcReportData();
             if (dtProcessReport == null) return;
             var dtSystemVariables =CommonUtils.GetSystemDetails(BatchID);
             if (dtSystemVariables == null) return;
@@ -114,5 +114,40 @@ namespace ALDReporting.LoadTcReport
 
         }
 
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            switch (e.TabPageIndex)
+            {
+                case 0:
+                    {
+                        break;
+                    }
+                case 1:
+                    {
+                        var dataAlarm = new DataAlarm(reportViewer2, Convert.ToDateTime(process_startDateTime), Convert.ToDateTime(process_endDateTime));
+                        this.reportViewer2.RefreshReport();
+                        break;
+                    }
+                case 2:
+                    {
+                        GetProductImages();
+                        break;
+                    }
+                case 3:
+                    {
+                        LoadChart();
+                        break;
+                    }
+                case 4:
+                    {
+                        var dataRecipe = new DataRecipe(rvRecipe, BatchID);
+                        this.rvRecipe.RefreshReport();
+                        //LoadRecipe();
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
     }
 }

@@ -13,9 +13,9 @@ namespace ALDReporting.ReportMethods
 
         public DataChart() { }
 
-        public DataChart(Chart chartProcess, DataTable dtForGraph,DataTable dtForGraphCondition,int parameterBatchSelect)
+        public DataChart(Chart chartProcess, DataTable dtForGraph, DataTable dtForGraphCondition, int parameterBatchSelect)
         {
-            _dtForGraph = dtForGraph;
+            _dtForGraph = (dtForGraph).Copy();
             _dtForGraphCondition = dtForGraphCondition;
             _parameterBatchSelect = parameterBatchSelect;
             try
@@ -23,7 +23,7 @@ namespace ALDReporting.ReportMethods
                 //Remove unwanted column
                 RemoveNotReqiredColumn();
                 var maxY2Values = "0.00E+0";
-                chartProcess.Series.RemoveAt(0);
+                chartProcess.Series.Clear();
                 chartProcess.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
 
 
@@ -33,7 +33,7 @@ namespace ALDReporting.ReportMethods
                     {
                         chartProcess.Series.Add(dc.ColumnName);
                         chartProcess.Series[dc.ColumnName].ChartType = SeriesChartType.Spline;
-                        foreach (DataRow item in dtForGraph.Rows)
+                        foreach (DataRow item in _dtForGraph.Rows)
                         {
                             var x = Convert.ToString(item["ProcessDate"]).Split(' ')[1];
                             var y = Convert.ToString(item[dc.ColumnName]);
@@ -49,16 +49,7 @@ namespace ALDReporting.ReportMethods
 
                 }
 
-                //if (maxY2Values == "0")
-                //{
-                //    CustomMessageBox.Custom(BatchID + " batch don't have start date and time. Please connect system administrators !");
-                //    return;
-                //}
-
-                //chartProcess.ChartAreas[0].AxisY2.IsLogarithmic = true;
-                //chartProcess.ChartAreas[0].AxisY2.LogarithmBase = Math.E;
                 chartProcess.ChartAreas[0].AxisY2.LabelStyle.Format = "0.00E+0";
-
                 chartProcess.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
                 chartProcess.ChartAreas[0].AxisX.LabelStyle.Interval = 2;
                 chartProcess.ChartAreas[0].AxisX.Title = StaticValues.ProcessChart_xAxis;
@@ -77,34 +68,43 @@ namespace ALDReporting.ReportMethods
             }
             catch (Exception ex)
             {
-
                 throw;
             }
         }
         private DataTable RemoveNotReqiredColumn()
         {
-            _dtForGraph.Columns.Remove("SrNo");
-            _dtForGraph.Columns.Remove("ProfileStatus");
+            if (_dtForGraph.Columns["SrNo"] != null)
+                _dtForGraph.Columns.Remove("SrNo");
+            if (_dtForGraph.Columns["ProfileStatus"] != null)
+                _dtForGraph.Columns.Remove("ProfileStatus");
             string strPressUnitSelect = Convert.ToString(_dtForGraphCondition.Rows[0]["Press_Unit_Select"]).ToLower();
             if (strPressUnitSelect == StaticValues.PressUnitSelect_mBar)
             {
-                _dtForGraph.Columns.Remove("PressTorr");
-                _dtForGraph.Columns.Remove("PressPa");
+                if (_dtForGraph.Columns["PressTorr"] != null)
+                    _dtForGraph.Columns.Remove("PressTorr");
+                if (_dtForGraph.Columns["PressPa"] != null)
+                    _dtForGraph.Columns.Remove("PressPa");
             }
             else if (strPressUnitSelect == StaticValues.PressUnitSelect_pa)
             {
-                _dtForGraph.Columns.Remove("PressmBar");
-                _dtForGraph.Columns.Remove("PressTorr");
+                if (_dtForGraph.Columns["PressmBar"] != null)
+                    _dtForGraph.Columns.Remove("PressmBar");
+                if (_dtForGraph.Columns["PressTorr"] != null)
+                    _dtForGraph.Columns.Remove("PressTorr");
             }
             else if (strPressUnitSelect == StaticValues.PressUnitSelect_Torr)
             {
-                _dtForGraph.Columns.Remove("PressmBar");
-                _dtForGraph.Columns.Remove("PressPa");
+                if (_dtForGraph.Columns["PressmBar"] != null)
+                    _dtForGraph.Columns.Remove("PressmBar");
+                if (_dtForGraph.Columns["PressPa"] != null)
+                    _dtForGraph.Columns.Remove("PressPa");
             }
-            _dtForGraph.Columns.Remove("EventName");
+            if (_dtForGraph.Columns["EventName"] != null)
+                _dtForGraph.Columns.Remove("EventName");
             for (int i = _parameterBatchSelect; i < StaticValues.MaxTC_Select; i++)
             {
-                _dtForGraph.Columns.Remove("Control" + (i + 1));
+                if (_dtForGraph.Columns["Control" + (i + 1)] != null)
+                    _dtForGraph.Columns.Remove("Control" + (i + 1));
             }
             return _dtForGraph;
         }

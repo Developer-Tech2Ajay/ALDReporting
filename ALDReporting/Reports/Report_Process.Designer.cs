@@ -56,16 +56,17 @@
             this.picBeforePStart = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.lblPEndTime = new System.Windows.Forms.Label();
+            this.lblPEndDateTime = new System.Windows.Forms.Label();
+            this.lblStartDateTime = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblPStartDateTime = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.chartProcess = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.rvRecipe = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnPrintProcesRpt = new System.Windows.Forms.Button();
             this.sp_GetProcessDeatilsByBatchIDTableAdapter = new ALDReporting.ReportDataSetTableAdapters.sp_GetProcessDeatilsByBatchIDTableAdapter();
             this.sp_GetProcessDeatilsByBatchIDTableAdapter1 = new ALDReporting.ReportDataSet1TableAdapters.sp_GetProcessDeatilsByBatchIDTableAdapter();
-            this.rvRecipe = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.sp_GetProcessDeatilsByBatchIDBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlarmReportBindingSource)).BeginInit();
@@ -141,6 +142,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(947, 672);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
@@ -167,14 +169,15 @@
             // 
             // RV_ProcessReportAlarm
             // 
+            this.RV_ProcessReportAlarm.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource2.Name = "dsReport_Alarm";
             reportDataSource2.Value = this.AlarmReportBindingSource;
             this.RV_ProcessReportAlarm.LocalReport.DataSources.Add(reportDataSource2);
             this.RV_ProcessReportAlarm.LocalReport.ReportEmbeddedResource = "ALDReporting.AlarmReport.Report_Alarm.rdlc";
-            this.RV_ProcessReportAlarm.Location = new System.Drawing.Point(6, 15);
+            this.RV_ProcessReportAlarm.Location = new System.Drawing.Point(3, 3);
             this.RV_ProcessReportAlarm.Name = "RV_ProcessReportAlarm";
             this.RV_ProcessReportAlarm.ServerReport.BearerToken = null;
-            this.RV_ProcessReportAlarm.Size = new System.Drawing.Size(915, 371);
+            this.RV_ProcessReportAlarm.Size = new System.Drawing.Size(933, 640);
             this.RV_ProcessReportAlarm.TabIndex = 0;
             this.RV_ProcessReportAlarm.Load += new System.EventHandler(this.RV_ProcessReportAlarm_Load);
             // 
@@ -297,7 +300,8 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.lblPEndTime);
+            this.panel5.Controls.Add(this.lblPEndDateTime);
+            this.panel5.Controls.Add(this.lblStartDateTime);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.lblPStartDateTime);
             this.panel5.Controls.Add(this.label3);
@@ -305,16 +309,27 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(883, 28);
             this.panel5.TabIndex = 1;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // lblPEndTime
+            // lblPEndDateTime
             // 
-            this.lblPEndTime.AutoSize = true;
-            this.lblPEndTime.ForeColor = System.Drawing.Color.LightGray;
-            this.lblPEndTime.Location = new System.Drawing.Point(570, 7);
-            this.lblPEndTime.Name = "lblPEndTime";
-            this.lblPEndTime.Size = new System.Drawing.Size(96, 13);
-            this.lblPEndTime.TabIndex = 3;
-            this.lblPEndTime.Text = "Process Start Date";
+            this.lblPEndDateTime.AutoSize = true;
+            this.lblPEndDateTime.ForeColor = System.Drawing.Color.Black;
+            this.lblPEndDateTime.Location = new System.Drawing.Point(572, 7);
+            this.lblPEndDateTime.Name = "lblPEndDateTime";
+            this.lblPEndDateTime.Size = new System.Drawing.Size(93, 13);
+            this.lblPEndDateTime.TabIndex = 4;
+            this.lblPEndDateTime.Text = "Process End Date";
+            // 
+            // lblStartDateTime
+            // 
+            this.lblStartDateTime.AutoSize = true;
+            this.lblStartDateTime.ForeColor = System.Drawing.Color.Black;
+            this.lblStartDateTime.Location = new System.Drawing.Point(144, 7);
+            this.lblStartDateTime.Name = "lblStartDateTime";
+            this.lblStartDateTime.Size = new System.Drawing.Size(96, 13);
+            this.lblStartDateTime.TabIndex = 3;
+            this.lblStartDateTime.Text = "Process Start Date";
             // 
             // label5
             // 
@@ -380,6 +395,16 @@
             this.tabPage5.Text = "Recipe";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // rvRecipe
+            // 
+            this.rvRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rvRecipe.LocalReport.ReportEmbeddedResource = "ALDReporting.Reports.RecipeReport.rdlc";
+            this.rvRecipe.Location = new System.Drawing.Point(0, 0);
+            this.rvRecipe.Name = "rvRecipe";
+            this.rvRecipe.ServerReport.BearerToken = null;
+            this.rvRecipe.Size = new System.Drawing.Size(939, 646);
+            this.rvRecipe.TabIndex = 0;
+            // 
             // btnPrintProcesRpt
             // 
             this.btnPrintProcesRpt.Location = new System.Drawing.Point(852, 3);
@@ -397,16 +422,6 @@
             // sp_GetProcessDeatilsByBatchIDTableAdapter1
             // 
             this.sp_GetProcessDeatilsByBatchIDTableAdapter1.ClearBeforeFill = true;
-            // 
-            // rvRecipe
-            // 
-            this.rvRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rvRecipe.LocalReport.ReportEmbeddedResource = "ALDReporting.Reports.RecipeReport.rdlc";
-            this.rvRecipe.Location = new System.Drawing.Point(0, 0);
-            this.rvRecipe.Name = "rvRecipe";
-            this.rvRecipe.ServerReport.BearerToken = null;
-            this.rvRecipe.Size = new System.Drawing.Size(939, 646);
-            this.rvRecipe.TabIndex = 0;
             // 
             // Report_Process
             // 
@@ -473,12 +488,13 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartProcess;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblPEndTime;
+        private System.Windows.Forms.Label lblStartDateTime;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblPStartDateTime;
         private Microsoft.Reporting.WinForms.ReportViewer RV_ProcessReportAlarm;
         private System.Windows.Forms.BindingSource AlarmReportBindingSource;
         private System.Windows.Forms.TabPage tabPage5;
         private Microsoft.Reporting.WinForms.ReportViewer rvRecipe;
+        private System.Windows.Forms.Label lblPEndDateTime;
     }
 }

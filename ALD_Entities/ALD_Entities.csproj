@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuditReport\AuditReport.cs" />
+    <Compile Include="CorrectionFactor.cs" />
     <Compile Include="E_AlarmReport\AlarmReport.cs" />
     <Compile Include="Recipe\Recipe_Report.cs" />
     <Compile Include="Report_RQ.cs" />
@@ -56,14 +57,13 @@
     <Compile Include="E_Parameter.cs" />
     <Compile Include="ImageUploadForBatch.cs" />
     <Compile Include="ProcessReport\ProductImages.cs" />
+    <Compile Include="ReqByBatchID.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="SystemMessage.cs" />
     <Compile Include="ProcessReport\ProcessReport_DDL.cs" />
-    <Compile Include="ProcessReport\ProcessReport_RQ.cs" />
     <Compile Include="ProcessReport\ProcessReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UniformityReport\UniformityReport.cs" />
-    <Compile Include="UniformityReport\UniformityReport_RQ.cs" />
     <Compile Include="Util\AesOperation.cs" />
     <Compile Include="Util\Constants.cs" />
     <Compile Include="Util\Extensions.cs" />

@@ -13,7 +13,7 @@
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>E:\ClientProjects\PublishedCode\</PublishUrl>
+    <PublishUrl>E:\ClientProjects\PublishedCode\09Mar2022\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -153,6 +153,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rdlcRecipeDetails.xsd</DependentUpon>
     </Compile>
+    <Compile Include="rdsCorrectionFactor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rdsCorrectionFactor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rdsParameterByDuration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rdsParameterByDuration.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ReportDataSet.Designer.cs" />
     <Compile Include="ReportDataSet1.Designer.cs" />
     <Compile Include="ReportDataSet2.Designer.cs">
@@ -165,6 +175,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ReportDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet8.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ReportMethods\DataAlarm.cs" />
     <Compile Include="ReportMethods\DataChart.cs" />
     <Compile Include="ReportMethods\DataProcessByDuration.cs" />
@@ -174,6 +209,12 @@
     </Compile>
     <Compile Include="Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProcessByDuration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ProcessByDuration.Designer.cs">
+      <DependentUpon>ProcessByDuration.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\Report_Audit.cs">
       <SubType>Form</SubType>
@@ -186,6 +227,21 @@
     </Compile>
     <Compile Include="Reports\Report_Process.Designer.cs">
       <DependentUpon>Report_Process.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptdsParameter.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptdsParameter.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rptdsUniformatory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptdsUniformatory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rptUniformatory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptUniformatory.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="StartUpClass.cs" />
@@ -247,6 +303,9 @@
       <DependentUpon>Index.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ProcessByDuration.rdlc" />
+    <EmbeddedResource Include="Reports\ProcessByDuration.resx">
+      <DependentUpon>ProcessByDuration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Process_Report_Alarm.rdlc" />
     <EmbeddedResource Include="Reports\RecipeReport.rdlc" />
     <EmbeddedResource Include="Reports\Report_Audit.resx">
@@ -331,6 +390,28 @@
     <None Include="rdlcRecipeDetails.xss">
       <DependentUpon>rdlcRecipeDetails.xsd</DependentUpon>
     </None>
+    <None Include="rdsCorrectionFactor.xsc">
+      <DependentUpon>rdsCorrectionFactor.xsd</DependentUpon>
+    </None>
+    <None Include="rdsCorrectionFactor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rdsCorrectionFactor.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rdsCorrectionFactor.xss">
+      <DependentUpon>rdsCorrectionFactor.xsd</DependentUpon>
+    </None>
+    <None Include="rdsParameterByDuration.xsc">
+      <DependentUpon>rdsParameterByDuration.xsd</DependentUpon>
+    </None>
+    <None Include="rdsParameterByDuration.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rdsParameterByDuration.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rdsParameterByDuration.xss">
+      <DependentUpon>rdsParameterByDuration.xsd</DependentUpon>
+    </None>
     <None Include="ReportDataSet.xsc">
       <DependentUpon>ReportDataSet.xsd</DependentUpon>
     </None>
@@ -364,9 +445,99 @@
     <None Include="ReportDataSet3.xss">
       <DependentUpon>ReportDataSet3.xsd</DependentUpon>
     </None>
+    <None Include="ReportDataSet4.xsc">
+      <DependentUpon>ReportDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet4.xss">
+      <DependentUpon>ReportDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet5.xsc">
+      <DependentUpon>ReportDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet5.xss">
+      <DependentUpon>ReportDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet6.xsc">
+      <DependentUpon>ReportDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet6.xss">
+      <DependentUpon>ReportDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet7.xsc">
+      <DependentUpon>ReportDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet7.xss">
+      <DependentUpon>ReportDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet8.xsc">
+      <DependentUpon>ReportDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet8.xss">
+      <DependentUpon>ReportDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="rptdsParameter.xsc">
+      <DependentUpon>rptdsParameter.xsd</DependentUpon>
+    </None>
+    <None Include="rptdsParameter.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rptdsParameter.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rptdsParameter.xss">
+      <DependentUpon>rptdsParameter.xsd</DependentUpon>
+    </None>
+    <None Include="rptdsUniformatory.xsc">
+      <DependentUpon>rptdsUniformatory.xsd</DependentUpon>
+    </None>
+    <None Include="rptdsUniformatory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rptdsUniformatory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rptdsUniformatory.xss">
+      <DependentUpon>rptdsUniformatory.xsd</DependentUpon>
+    </None>
+    <None Include="rptUniformatory.xsc">
+      <DependentUpon>rptUniformatory.xsd</DependentUpon>
+    </None>
+    <None Include="rptUniformatory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rptUniformatory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rptUniformatory.xss">
+      <DependentUpon>rptUniformatory.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\Background.jpg" />

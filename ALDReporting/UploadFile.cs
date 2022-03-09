@@ -105,16 +105,15 @@ namespace ALDReporting
             var dal = new DalProductImages();
             try
             {
-                if (CheckEligiabilityForUpload().StatusCode == 0)
+                if (CheckEligibilityForUpload().StatusCode == 0)
                 {
-                    string path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
-                    string filename = Convert.ToString(lstFileUpload.Items[0]).Substring(Convert.ToString(lstFileUpload.Items[0]).LastIndexOf("\\", StringComparison.Ordinal) + 1);
-                    string fullPathWithOutFilename = path + "\\ProductsImages\\";
-                    string fullPath = fullPathWithOutFilename + filename;
-
-
+                    var path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
+                    var filename = Convert.ToString(lstFileUpload.Items[0]).Substring(Convert.ToString(lstFileUpload.Items[0]).LastIndexOf("\\", StringComparison.Ordinal) + 1);
+                    var fullPathWithOutFilename = Path.Combine(path + "\\ProductsImages\\");
+                    var fullPath = fullPathWithOutFilename + filename;
                     Directory.CreateDirectory(fullPathWithOutFilename);
-                    File.Copy(Convert.ToString(lstFileUpload.Items[0]), fullPath);
+                    if (!File.Exists(fullPath))
+                        File.Copy(Convert.ToString(lstFileUpload.Items[0]), fullPath);
 
                     sm = dal.CheckEligibilityForUpload(new ImageUploadForBatch() { BatchID = ReportClass.BatchID, ImageFilePath = fullPath, ImageType = ReportClass.ImageType });
                     // MessageBox.Show(sm.StatusMsg);
@@ -150,7 +149,7 @@ namespace ALDReporting
         ///// Check file exist for selected batch id 
         ///// </summary>
         ///// <returns></returns>
-        private SystemMessage CheckEligiabilityForUpload()
+        private SystemMessage CheckEligibilityForUpload()
         {
             SystemMessage _sysMsg = new SystemMessage();
             try
@@ -173,6 +172,7 @@ namespace ALDReporting
             var dr = openFileDialog.ShowDialog();
             AddFileInList(openFileDialog.FileName);
         }
+
     }
 
 }

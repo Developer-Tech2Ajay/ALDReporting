@@ -14,16 +14,24 @@ namespace ALDReporting.ReportMethods
     {
         public DataAlarm()
         {
-            
+
         }
 
-        public DataAlarm(ReportViewer rptViewer, DateTime dtStart,DateTime dtEnd)
+        public DataAlarm(ReportViewer rptViewer, DateTime dtStart, DateTime dtEnd)
         {
-            rptViewer.RemoveOptionToDownload();
             var dalAr = new DalAlarmReport();
             var result = dalAr.GetAlarmReports(new ReportRq() { StartDateTime = dtStart, EndDateTime = dtEnd });
             var dtAlarmReport = CustomSystemClass.ToDataTable<Entities.AlarmReport>(result);
             CommonUtils.AddDataSource(rptViewer, "dsReport_Alarm", dtAlarmReport);
+            #region
+            string exportOption = "Word";
+            RenderingExtension extension = rptViewer.LocalReport.ListRenderingExtensions().ToList().Find(x => x.Name.Equals(exportOption, StringComparison.CurrentCultureIgnoreCase));
+            if (extension != null)
+            {
+                System.Reflection.FieldInfo fieldInfo = extension.GetType().GetField("m_isVisible", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                fieldInfo.SetValue(extension, false);
+            }
+            #endregion
         }
     }
 }
