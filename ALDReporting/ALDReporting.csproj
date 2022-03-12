@@ -8,9 +8,26 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ALDReporting</RootNamespace>
     <AssemblyName>ALDReporting</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\ClientProjects\PublishedCode\12Mar2022\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,15 +48,43 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9512F8289037A2852585C89E0098E56184D94651</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ALDReporting_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,11 +100,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlarmReport\Report_Alarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlarmReport\Report_Alarm.Designer.cs">
+      <DependentUpon>Report_Alarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonUtils.cs" />
+    <Compile Include="CustomClass\CustomMessageBox.cs" />
+    <Compile Include="dsAuditLogReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAuditLogReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsAuditReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAuditReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LeftMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="LeftMenu.Designer.cs">
       <DependentUpon>LeftMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadTcReport\LTReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadTcReport\LTReport.Designer.cs">
+      <DependentUpon>LTReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -74,24 +143,125 @@
       <DependentUpon>ProjectResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\ProcessReport.cs">
+    <Compile Include="rdlcDatasetRecipe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rdlcDatasetRecipe.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rdlcRecipeDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rdlcRecipeDetails.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rdsCorrectionFactor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rdsCorrectionFactor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rdsParameterByDuration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rdsParameterByDuration.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rdsProcessReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rdsProcessReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet.Designer.cs" />
+    <Compile Include="ReportDataSet1.Designer.cs" />
+    <Compile Include="ReportDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportMethods\DataAlarm.cs" />
+    <Compile Include="ReportMethods\DataChart.cs" />
+    <Compile Include="ReportMethods\DataProcessByDuration.cs" />
+    <Compile Include="ReportMethods\DataRecipe.cs" />
+    <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\ProcessReport.Designer.cs">
-      <DependentUpon>ProcessReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\Index.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\Index.Designer.cs">
+    <Compile Include="Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ProcessByDuration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ProcessByDuration.Designer.cs">
+      <DependentUpon>ProcessByDuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Report_Audit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Report_Audit.Designer.cs">
+      <DependentUpon>Report_Audit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Report_Process.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Report_Process.Designer.cs">
+      <DependentUpon>Report_Process.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptdsParameter.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptdsParameter.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rptdsUniformatory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptdsUniformatory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rptUniformatory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptUniformatory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="StartUpClass.cs" />
+    <Compile Include="SystemVariables.cs" />
     <Compile Include="ucHeader.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucHeader.Designer.cs">
       <DependentUpon>ucHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucProductImages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucProductImages.Designer.cs">
+      <DependentUpon>ucProductImages.cs</DependentUpon>
     </Compile>
     <Compile Include="ucTimeTickerControl.cs">
       <SubType>UserControl</SubType>
@@ -99,15 +269,29 @@
     <Compile Include="ucTimeTickerControl.Designer.cs">
       <DependentUpon>ucTimeTickerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UniformityReport\UFReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UniformityReport\UFReport.Designer.cs">
+      <DependentUpon>UFReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UploadFile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UploadFile.Designer.cs">
       <DependentUpon>UploadFile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AlarmReport\Report_Alarm.rdlc" />
+    <EmbeddedResource Include="AlarmReport\Report_Alarm.resx">
+      <DependentUpon>Report_Alarm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LeftMenu.resx">
       <DependentUpon>LeftMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoadTcReport\LTReport.resx">
+      <DependentUpon>LTReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadTcReport\LTReport.rdlc" />
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,24 +307,72 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\ProcessReport.resx">
-      <DependentUpon>ProcessReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Index.resx">
+    <EmbeddedResource Include="Reports\AuditReport.rdlc" />
+    <EmbeddedResource Include="Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProcessByDuration.rdlc" />
+    <EmbeddedResource Include="Reports\ProcessByDuration.resx">
+      <DependentUpon>ProcessByDuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Process_Report_Alarm.rdlc" />
+    <EmbeddedResource Include="Reports\RecipeReport.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Audit.resx">
+      <DependentUpon>Report_Audit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report_Process.resx">
+      <DependentUpon>Report_Process.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_Process.rdlc" />
     <EmbeddedResource Include="ucHeader.resx">
       <DependentUpon>ucHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucProductImages.resx">
+      <DependentUpon>ucProductImages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucTimeTickerControl.resx">
       <DependentUpon>ucTimeTickerControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UniformityReport\UniReport.rdlc" />
+    <EmbeddedResource Include="UniformityReport\UFReport.resx">
+      <DependentUpon>UFReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UploadFile.resx">
       <DependentUpon>UploadFile.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ALDReporting_TemporaryKey.pfx" />
+    <None Include="dsAuditLogReport.xsc">
+      <DependentUpon>dsAuditLogReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsAuditLogReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAuditLogReport.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsAuditLogReport.xss">
+      <DependentUpon>dsAuditLogReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsAuditReport.xsc">
+      <DependentUpon>dsAuditReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsAuditReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAuditReport.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsAuditReport.xss">
+      <DependentUpon>dsAuditReport.xsd</DependentUpon>
+    </None>
     <None Include="libs\SystemDetails.json" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ALDReporting.ReportMethods.DataProcessByDuration.datasource" />
+    <None Include="Properties\DataSources\ALD_Entities.AlarmReport.AlarmReport.datasource" />
+    <None Include="Properties\DataSources\ALD_Entities.E_AlarmReport.AlarmReport.datasource" />
+    <None Include="Properties\DataSources\ALD_Entities.E_Parameter.datasource" />
+    <None Include="Properties\DataSources\ALD_Entities.ProcessReport.ProcessReport.datasource" />
+    <None Include="Properties\DataSources\SystemVariables.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,15 +382,207 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="rdlcDatasetRecipe.xsc">
+      <DependentUpon>rdlcDatasetRecipe.xsd</DependentUpon>
+    </None>
+    <None Include="rdlcDatasetRecipe.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rdlcDatasetRecipe.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rdlcDatasetRecipe.xss">
+      <DependentUpon>rdlcDatasetRecipe.xsd</DependentUpon>
+    </None>
+    <None Include="rdlcRecipeDetails.xsc">
+      <DependentUpon>rdlcRecipeDetails.xsd</DependentUpon>
+    </None>
+    <None Include="rdlcRecipeDetails.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rdlcRecipeDetails.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rdlcRecipeDetails.xss">
+      <DependentUpon>rdlcRecipeDetails.xsd</DependentUpon>
+    </None>
+    <None Include="rdsCorrectionFactor.xsc">
+      <DependentUpon>rdsCorrectionFactor.xsd</DependentUpon>
+    </None>
+    <None Include="rdsCorrectionFactor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rdsCorrectionFactor.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rdsCorrectionFactor.xss">
+      <DependentUpon>rdsCorrectionFactor.xsd</DependentUpon>
+    </None>
+    <None Include="rdsParameterByDuration.xsc">
+      <DependentUpon>rdsParameterByDuration.xsd</DependentUpon>
+    </None>
+    <None Include="rdsParameterByDuration.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rdsParameterByDuration.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rdsParameterByDuration.xss">
+      <DependentUpon>rdsParameterByDuration.xsd</DependentUpon>
+    </None>
+    <None Include="rdsProcessReport.xsc">
+      <DependentUpon>rdsProcessReport.xsd</DependentUpon>
+    </None>
+    <None Include="rdsProcessReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rdsProcessReport.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rdsProcessReport.xss">
+      <DependentUpon>rdsProcessReport.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet.xsc">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet.xss">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet2.xsc">
+      <DependentUpon>ReportDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet2.xss">
+      <DependentUpon>ReportDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet3.xsc">
+      <DependentUpon>ReportDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet3.xss">
+      <DependentUpon>ReportDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet4.xsc">
+      <DependentUpon>ReportDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet4.xss">
+      <DependentUpon>ReportDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet5.xsc">
+      <DependentUpon>ReportDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet5.xss">
+      <DependentUpon>ReportDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet6.xsc">
+      <DependentUpon>ReportDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet6.xss">
+      <DependentUpon>ReportDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet7.xsc">
+      <DependentUpon>ReportDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet7.xss">
+      <DependentUpon>ReportDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet8.xsc">
+      <DependentUpon>ReportDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet8.xss">
+      <DependentUpon>ReportDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="rptdsParameter.xsc">
+      <DependentUpon>rptdsParameter.xsd</DependentUpon>
+    </None>
+    <None Include="rptdsParameter.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rptdsParameter.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rptdsParameter.xss">
+      <DependentUpon>rptdsParameter.xsd</DependentUpon>
+    </None>
+    <None Include="rptdsUniformatory.xsc">
+      <DependentUpon>rptdsUniformatory.xsd</DependentUpon>
+    </None>
+    <None Include="rptdsUniformatory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rptdsUniformatory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rptdsUniformatory.xss">
+      <DependentUpon>rptdsUniformatory.xsd</DependentUpon>
+    </None>
+    <None Include="rptUniformatory.xsc">
+      <DependentUpon>rptUniformatory.xsd</DependentUpon>
+    </None>
+    <None Include="rptUniformatory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rptUniformatory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rptUniformatory.xss">
+      <DependentUpon>rptUniformatory.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\Background.jpg" />
     <Content Include="images\close-button-normal.png" />
     <Content Include="images\close-button-over.png" />
     <Content Include="images\Logo.jpg" />
+    <Content Include="images\MSME.jpeg" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ALD_DAL\ALD_DAL.csproj">
@@ -169,6 +593,24 @@
       <Project>{d8958ec2-cfb4-4c91-b221-e05c8263e369}</Project>
       <Name>ALD_Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProductsImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

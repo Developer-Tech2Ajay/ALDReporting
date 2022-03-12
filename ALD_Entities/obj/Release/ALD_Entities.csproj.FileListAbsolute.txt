@@ -1,0 +1,9 @@
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Release\ALD_Entities.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Release\ALD_Entities.pdb
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Release\Newtonsoft.Json.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\bin\Release\Newtonsoft.Json.xml
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Release\ALD_Entities.csproj.CoreCompileInputs.cache
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Release\ALD_Entities.csproj.CopyComplete
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Release\ALD_Entities.dll
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Release\ALD_Entities.pdb
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Release\ALD_Entities.csprojAssemblyReference.cache

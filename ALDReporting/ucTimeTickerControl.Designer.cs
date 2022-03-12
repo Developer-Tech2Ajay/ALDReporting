@@ -38,11 +38,12 @@
             this.lblTimerTick.AutoSize = true;
             this.lblTimerTick.BackColor = System.Drawing.Color.Transparent;
             this.lblTimerTick.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimerTick.Location = new System.Drawing.Point(19, 22);
+            this.lblTimerTick.Location = new System.Drawing.Point(21, 0);
             this.lblTimerTick.Name = "lblTimerTick";
             this.lblTimerTick.Size = new System.Drawing.Size(45, 16);
             this.lblTimerTick.TabIndex = 0;
             this.lblTimerTick.Text = "label1";
+            this.lblTimerTick.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1
             // 
@@ -54,9 +55,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.lblTimerTick);
             this.Name = "ucTimeTickerControl";
-            this.Size = new System.Drawing.Size(104, 56);
+            this.Size = new System.Drawing.Size(88, 28);
             this.ResumeLayout(false);
             this.PerformLayout();
 

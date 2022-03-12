@@ -32,12 +32,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPswd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtboxUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblSysteName = new System.Windows.Forms.Label();
+            this.lblSystemNameValue = new System.Windows.Forms.Label();
+            this.ucTimeTickerControl1 = new ALDReporting.ucTimeTickerControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +53,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtPswd);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtboxUserName);
             this.panel1.Controls.Add(this.label1);
@@ -87,12 +90,13 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // textBox1
+            // txtPswd
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 177);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtPswd.Location = new System.Drawing.Point(12, 177);
+            this.txtPswd.Name = "txtPswd";
+            this.txtPswd.PasswordChar = '*';
+            this.txtPswd.Size = new System.Drawing.Size(192, 20);
+            this.txtPswd.TabIndex = 5;
             // 
             // label2
             // 
@@ -126,11 +130,11 @@
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.White;
             this.lblLogin.Location = new System.Drawing.Point(82, 65);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(60, 22);
+            this.lblLogin.Size = new System.Drawing.Size(57, 24);
             this.lblLogin.TabIndex = 1;
             this.lblLogin.Text = "Login";
             // 
@@ -143,6 +147,38 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // lblSysteName
+            // 
+            this.lblSysteName.AutoSize = true;
+            this.lblSysteName.BackColor = System.Drawing.Color.Transparent;
+            this.lblSysteName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSysteName.ForeColor = System.Drawing.Color.White;
+            this.lblSysteName.Location = new System.Drawing.Point(12, 19);
+            this.lblSysteName.Name = "lblSysteName";
+            this.lblSysteName.Size = new System.Drawing.Size(79, 18);
+            this.lblSysteName.TabIndex = 1;
+            this.lblSysteName.Text = "System : ";
+            // 
+            // lblSystemNameValue
+            // 
+            this.lblSystemNameValue.AutoSize = true;
+            this.lblSystemNameValue.BackColor = System.Drawing.Color.Transparent;
+            this.lblSystemNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemNameValue.ForeColor = System.Drawing.Color.White;
+            this.lblSystemNameValue.Location = new System.Drawing.Point(83, 20);
+            this.lblSystemNameValue.Name = "lblSystemNameValue";
+            this.lblSystemNameValue.Size = new System.Drawing.Size(47, 17);
+            this.lblSystemNameValue.TabIndex = 2;
+            this.lblSystemNameValue.Text = "name";
+            // 
+            // ucTimeTickerControl1
+            // 
+            this.ucTimeTickerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucTimeTickerControl1.Location = new System.Drawing.Point(515, 9);
+            this.ucTimeTickerControl1.Name = "ucTimeTickerControl1";
+            this.ucTimeTickerControl1.Size = new System.Drawing.Size(185, 28);
+            this.ucTimeTickerControl1.TabIndex = 3;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +186,9 @@
             this.BackgroundImage = global::ALDReporting.ProjectResource.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(712, 434);
+            this.Controls.Add(this.ucTimeTickerControl1);
+            this.Controls.Add(this.lblSystemNameValue);
+            this.Controls.Add(this.lblSysteName);
             this.Controls.Add(this.panel1);
             this.Name = "Login";
             this.Text = "Login";
@@ -158,6 +197,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -168,9 +208,12 @@
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtboxUserName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPswd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblSysteName;
+        private System.Windows.Forms.Label lblSystemNameValue;
+        private ucTimeTickerControl ucTimeTickerControl1;
     }
 }

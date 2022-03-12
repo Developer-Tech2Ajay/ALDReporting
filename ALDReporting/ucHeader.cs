@@ -8,5 +8,6 @@ namespace ALDReporting
         {
             InitializeComponent();
         }
+
     }
 }

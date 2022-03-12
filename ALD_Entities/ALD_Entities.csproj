@@ -31,7 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,14 +48,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlarmReport\AlarmReport.cs" />
-    <Compile Include="AlarmReport\AlarmReport_RQ.cs" />
+    <Compile Include="AuditReport\AuditReport.cs" />
+    <Compile Include="CorrectionFactor.cs" />
+    <Compile Include="E_AlarmReport\AlarmReport.cs" />
+    <Compile Include="Recipe\Recipe_Report.cs" />
+    <Compile Include="Report_RQ.cs" />
     <Compile Include="AllDropDownData.cs" />
+    <Compile Include="E_Parameter.cs" />
+    <Compile Include="ImageUploadForBatch.cs" />
+    <Compile Include="ProcessReport\ProductImages.cs" />
+    <Compile Include="ReqByBatchID.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="SystemMessage.cs" />
     <Compile Include="ProcessReport\ProcessReport_DDL.cs" />
-    <Compile Include="ProcessReport\ProcessReport_RQ.cs" />
     <Compile Include="ProcessReport\ProcessReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UniformityReport\UniformityReport.cs" />
+    <Compile Include="Util\AesOperation.cs" />
+    <Compile Include="Util\Constants.cs" />
+    <Compile Include="Util\Extensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
