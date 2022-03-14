@@ -46,7 +46,8 @@ namespace Entities
         /// All allowed PC Name
         /// </summary>
         public static List<string> machineNames = new List<string>()
-        { "ALDIndia1040-01","ALDIndia1040-02","ALDIndia1040-03","ALDIndia1040-04",
+        {
+          "ALDIndia1040-01","ALDIndia1040-02","ALDIndia1040-03","ALDIndia1040-04",
           "ALDIndia1040-05","ALDIndia1040-06","ALDIndia1040-07","ALDIndia1040-08","ALDIndia1040-09","ALDIndia1040-10","ALDIndia1040-11","ALDIndia1042",
           "ALDIndia1043","ALDIndia1044","ALDIndia1045","ALDIndia1046","ALDIndia1047","ALDIndia1048","ALDIndia1049","ALDIndia1050",
           "ALDIndia1051","ALDIndia1052","ALDIndia1053","ALDIndia1054","ALDIndia1055","ALDIndia1056","ALDIndia1057","ALDIndia1058",

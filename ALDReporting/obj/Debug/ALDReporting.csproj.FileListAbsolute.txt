@@ -205,3 +205,8 @@ E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.applicati
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.csproj.CopyComplete
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.exe
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.pdb
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.ucProductImg.resources
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\BouncyCastle.Crypto.dll
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\itextsharp.dll
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\itextsharp.xml
+E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.Supports.resources

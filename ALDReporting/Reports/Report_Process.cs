@@ -4,6 +4,7 @@ using ALDReporting.ReportMethods;
 using Entities;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 
@@ -18,6 +19,7 @@ namespace ALDReporting.Reports
         public DateTime process_endDateTime { get; set; }
         public int parameter_Batch_Select { get; set; }
         public DataRecipe DataRecipe;
+        public ucProductImg ucProductImg;
 
         public Report_Process()
         {
@@ -27,30 +29,13 @@ namespace ALDReporting.Reports
         {
             InitializeComponent();
             BatchID = strBatchId;
-           // GetProductImages();
         }
         public Report_Process(ReportRq reportRq)
         {
             InitializeComponent();
-            //BatchID = strBatchID;
-            //GetProductImages();
         }
 
-        private void GetProductImages()
-        {
-            try
-            {
-                DalProductImages dAlProductImages = new DalProductImages();
-                var imgs = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = BatchID });
-                if (imgs == null) return;
-                picBeforePStart.ImageLocation = imgs.ImageBefore;
-                picAfterPStart.ImageLocation = imgs.ImageAfter;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+       
         private DataTable GetProcessReportData()
         {
             var dal = new DalReport();
@@ -104,11 +89,10 @@ namespace ALDReporting.Reports
         {
             ReportBind();
             this.reportViewer1.RefreshReport();
-            //LoadChart();
-            //DataRecipe = new DataRecipe(this.rvRecipe, BatchID);
+           
         }
 
-       
+
 
 
         private void btnPrintProcesRpt_Click(object sender, EventArgs e)
@@ -138,12 +122,12 @@ namespace ALDReporting.Reports
         }
         private void AlarmReport()
         {
-           
+
         }
 
         private void RV_ProcessReportAlarm_Load(object sender, EventArgs e)
         {
-           // AlarmReport();
+            // AlarmReport();
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
@@ -167,7 +151,35 @@ namespace ALDReporting.Reports
                     }
                 case 2:
                     {
-                        GetProductImages();
+                        try
+                        {
+                            
+                            DalProductImages dAlProductImages = new DalProductImages();
+                            var imgs = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = BatchID });
+                            if (ucProductImg == null)
+                            {
+                                if (imgs == null)
+                                    ucProductImg = new ucProductImg();
+                                else
+                                    ucProductImg = new ucProductImg(imgs.ImageBefore, imgs.ImageAfter);
+                                this.tabPage3.Controls.Add(ucProductImg);
+                            }
+                            ucProductImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
+                                                                                                | System.Windows.Forms.AnchorStyles.Bottom)
+                                                                                                | System.Windows.Forms.AnchorStyles.Left)
+                                                                                                | System.Windows.Forms.AnchorStyles.Right)));
+                            ucProductImg.Dock = DockStyle.Fill;
+                            ucProductImg.Location = new System.Drawing.Point(6, 6);
+                            ucProductImg.Name = "ucProductImg1";
+                            ucProductImg.Size = new System.Drawing.Size(920, 536);
+                            ucProductImg.TabIndex = 0;
+                            ucProductImg.BringToFront();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            throw;
+                        }
                         break;
                     }
                 case 3:
@@ -185,6 +197,21 @@ namespace ALDReporting.Reports
                 default:
                     break;
             }
+        }
+
+        private void btnPrintTrend_Click(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
+            Graphics mg = Graphics.FromImage(bmp);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            printPreviewDialog1.ShowDialog();
+
+        }
+        Bitmap bmp;
+        private void printDocumentTrend_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
         }
     }
 }

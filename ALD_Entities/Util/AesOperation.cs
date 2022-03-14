@@ -23,7 +23,7 @@ namespace Entities
     {
         public InvalidException() { }
         public InvalidException(string name)
-            : base(String.Format("Exception has occured." + name + " Please connect system administrator"))
+            : base(String.Format("Exception has occured. " + name + " Please connect system administrator"))
         {
 
         }

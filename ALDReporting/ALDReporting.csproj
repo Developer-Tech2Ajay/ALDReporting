@@ -13,7 +13,7 @@
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>E:\ClientProjects\PublishedCode\09Mar2022\</PublishUrl>
+    <PublishUrl>E:\ClientProjects\PublishedCode\15Mar2022\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -61,6 +61,12 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -165,41 +171,6 @@
     </Compile>
     <Compile Include="ReportDataSet.Designer.cs" />
     <Compile Include="ReportDataSet1.Designer.cs" />
-    <Compile Include="ReportDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportDataSet5.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportDataSet6.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportDataSet6.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportDataSet7.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportDataSet7.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportDataSet8.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportDataSet8.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ReportMethods\DataAlarm.cs" />
     <Compile Include="ReportMethods\DataChart.cs" />
     <Compile Include="ReportMethods\DataProcessByDuration.cs" />
@@ -245,12 +216,24 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="StartUpClass.cs" />
+    <Compile Include="Supports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supports.Designer.cs">
+      <DependentUpon>Supports.cs</DependentUpon>
+    </Compile>
     <Compile Include="SystemVariables.cs" />
     <Compile Include="ucHeader.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucHeader.Designer.cs">
       <DependentUpon>ucHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucProductImg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucProductImg.Designer.cs">
+      <DependentUpon>ucProductImg.cs</DependentUpon>
     </Compile>
     <Compile Include="ucTimeTickerControl.cs">
       <SubType>UserControl</SubType>
@@ -315,8 +298,14 @@
       <DependentUpon>Report_Process.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Rpt_Process.rdlc" />
+    <EmbeddedResource Include="Supports.resx">
+      <DependentUpon>Supports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucHeader.resx">
       <DependentUpon>ucHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucProductImg.resx">
+      <DependentUpon>ucProductImg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucTimeTickerControl.resx">
       <DependentUpon>ucTimeTickerControl.cs</DependentUpon>
@@ -328,7 +317,6 @@
     <EmbeddedResource Include="UploadFile.resx">
       <DependentUpon>UploadFile.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ALDReporting_TemporaryKey.pfx" />
     <None Include="dsAuditLogReport.xsc">
       <DependentUpon>dsAuditLogReport.xsd</DependentUpon>
     </None>
@@ -412,94 +400,6 @@
     <None Include="rdsParameterByDuration.xss">
       <DependentUpon>rdsParameterByDuration.xsd</DependentUpon>
     </None>
-    <None Include="ReportDataSet.xsc">
-      <DependentUpon>ReportDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportDataSet.xss">
-      <DependentUpon>ReportDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet2.xsc">
-      <DependentUpon>ReportDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportDataSet2.xss">
-      <DependentUpon>ReportDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet3.xsc">
-      <DependentUpon>ReportDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportDataSet3.xss">
-      <DependentUpon>ReportDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet4.xsc">
-      <DependentUpon>ReportDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportDataSet4.xss">
-      <DependentUpon>ReportDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet5.xsc">
-      <DependentUpon>ReportDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet5.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportDataSet5.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportDataSet5.xss">
-      <DependentUpon>ReportDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet6.xsc">
-      <DependentUpon>ReportDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet6.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportDataSet6.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportDataSet6.xss">
-      <DependentUpon>ReportDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet7.xsc">
-      <DependentUpon>ReportDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet7.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportDataSet7.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportDataSet7.xss">
-      <DependentUpon>ReportDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet8.xsc">
-      <DependentUpon>ReportDataSet8.xsd</DependentUpon>
-    </None>
-    <None Include="ReportDataSet8.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportDataSet8.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportDataSet8.xss">
-      <DependentUpon>ReportDataSet8.xsd</DependentUpon>
-    </None>
     <None Include="rptdsParameter.xsc">
       <DependentUpon>rptdsParameter.xsd</DependentUpon>
     </None>
@@ -545,6 +445,8 @@
     <Content Include="images\close-button-over.png" />
     <Content Include="images\Logo.jpg" />
     <Content Include="images\MSME.jpeg" />
+    <Content Include="images\NotImageUploaded.png" />
+    <Content Include="images\technical-support.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

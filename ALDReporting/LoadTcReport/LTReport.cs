@@ -1,14 +1,10 @@
 ﻿using ALD_DAL;
-using Microsoft.Reporting.WinForms;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 using ALDReporting.ReportMethods;
 using Entities;
+using System;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ALDReporting.LoadTcReport
 {
@@ -20,6 +16,8 @@ namespace ALDReporting.LoadTcReport
         public string process_startDateTime { get; set; }
         public string process_endDateTime { get; set; }
         public int parameter_Batch_Select { get; set; }
+        public ucProductImg ucProductImg;
+
 
         public LTReport()
         {
@@ -29,42 +27,14 @@ namespace ALDReporting.LoadTcReport
         {
             InitializeComponent();
             BatchID = strBatchID;
-          //  GetProductImages();
 
         }
-
-        private void GetProductImages()
-        {
-            try
-            {
-                DalProductImages dAlProductImages = new DalProductImages();
-                var imgs = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = BatchID });
-                if (imgs == null) return;
-                picBeforePStart.ImageLocation = imgs.ImageBefore;
-                picAfterPStart.ImageLocation = imgs.ImageAfter;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-
         #region Get Data For Reports - Uniformity and Draw
         private void LTReport_Load(object sender, EventArgs e)
         {
-            //reportViewer1.RemoveOptionToDownload();
-            //reportViewer2.RemoveOptionToDownload();
-            //rvRecipe.RemoveOptionToDownload();
 
             ReportBind();
             this.reportViewer1.RefreshReport();
-            //var dataAlarm = new DataAlarm(reportViewer2, Convert.ToDateTime(process_startDateTime), Convert.ToDateTime(process_endDateTime));
-            //this.reportViewer2.RefreshReport();
-            //LoadChart();
-            //var dataRecipe = new DataRecipe(rvRecipe, BatchID);
-            //this.rvRecipe.RefreshReport();
         }
 
         private DataTable GetLoadTcReportData()
@@ -103,7 +73,7 @@ namespace ALDReporting.LoadTcReport
             //Get DataSet
             var dtProcessReport = GetLoadTcReportData();
             if (dtProcessReport == null) return;
-            var dtSystemVariables =CommonUtils.GetSystemDetails(BatchID);
+            var dtSystemVariables = CommonUtils.GetSystemDetails(BatchID);
             if (dtSystemVariables == null) return;
             var dtParameter = GetParametersDetails();
             if (dtParameter == null) return;
@@ -130,7 +100,36 @@ namespace ALDReporting.LoadTcReport
                     }
                 case 2:
                     {
-                        GetProductImages();
+                        try
+                        {
+
+                            DalProductImages dAlProductImages = new DalProductImages();
+                            var imgs = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = BatchID });
+
+                            if (ucProductImg == null)
+                            {
+                                if (imgs == null)
+                                    ucProductImg = new ucProductImg();
+                                else
+                                    ucProductImg = new ucProductImg(imgs.ImageBefore, imgs.ImageAfter);
+                                this.tabPage3.Controls.Add(ucProductImg);
+                            }
+                            ucProductImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
+                                                                                                | System.Windows.Forms.AnchorStyles.Bottom)
+                                                                                                | System.Windows.Forms.AnchorStyles.Left)
+                                                                                                | System.Windows.Forms.AnchorStyles.Right)));
+                            ucProductImg.Dock = DockStyle.Fill;
+                            ucProductImg.Location = new System.Drawing.Point(6, 6);
+                            ucProductImg.Name = "ucProductImg1";
+                            ucProductImg.Size = new System.Drawing.Size(920, 536);
+                            ucProductImg.TabIndex = 0;
+                            ucProductImg.BringToFront();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            throw;
+                        }
                         break;
                     }
                 case 3:
@@ -148,6 +147,22 @@ namespace ALDReporting.LoadTcReport
                 default:
                     break;
             }
+        }
+
+        private void printDocumentLoadTrend_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+        Bitmap bmp;
+
+        private void btnLoadTrend_Click(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
+            Graphics mg = Graphics.FromImage(bmp);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            printPreviewDialog1.ShowDialog();
+
         }
     }
 }

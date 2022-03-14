@@ -16,6 +16,7 @@ namespace ALDReporting
             InitializeComponent();
             //FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
+            lblSystemName.Text = System.Environment.MachineName;
         }
 
         private void Login_Load(object sender, System.EventArgs e)
@@ -89,7 +90,11 @@ namespace ALDReporting
             return false;
         }
 
-
-
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Supports supports = new Supports();
+            supports.Closed += (s, args) => this.Close();
+            supports.Show();
+        }
     }
 }

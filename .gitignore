@@ -2,13 +2,16 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/ALDReporting/v15/Server
+
 
 ALDReporting/bin
 ALDReporting/obj
-ALD_DAL/bin
-ALD_DAL/obj
+ALD_DAL/bin/*
+ALD_DAL/obj/*
 
 ALD/Entities/obj
 
 
+
+/.vs/ALDReporting/v15/Server/sqlite3/db.lock
+/.vs/ALDReporting/v15/Server/sqlite3

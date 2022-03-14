@@ -4,6 +4,7 @@ using Entities;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -17,6 +18,8 @@ namespace ALDReporting.UniformityReport
         public DateTime ProcessStartDateTime { get; set; }
         public DateTime ProcessEndDateTime { get; set; }
         public int ParameterBatchSelect { get; set; }
+        public ucProductImg ucProductImg;
+
 
         public UFReport()
         {
@@ -30,43 +33,7 @@ namespace ALDReporting.UniformityReport
 
         }
 
-        public void SetImage(PictureBox picbx)
-        {
-            //var imageSize = picbx.Image.Size;
-            //var fitSize = picbx.ClientSize;
-            //picbx.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
-            //    PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
-        }
-        private void GetProductImages()
-        {
-            try
-            {
-                DalProductImages dAlProductImages = new DalProductImages();
-                var imgs = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = BatchId });
-                if (imgs == null) return;
-                picBeforePStart.ImageLocation = imgs.ImageBefore;
-                SetImage(picBeforePStart);
-                picAfterPStart.ImageLocation = imgs.ImageAfter;
-                SetImage(picBeforePStart);
 
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        //public void LoadRecipe()
-        //{
-        //    #region Recipe
-        //    var dalRr = new DalRecipeReport();
-        //    CommonUtils.AddDataSource(rvRecipe, "dsRecipeDetails", CustomSystemClass.ToDataTable<Recipe_Report>(dalRr.GetRecipeReports(new ReqByBatchId() { BatchId = BatchId })));
-        //    CommonUtils.AddDataSource(rvRecipe, "dsRecipe", CustomSystemClass.ToDataTable<RecipeDetails>(dalRr.GetRecipeDetails(new ReqByBatchId() { BatchId = BatchId })));
-        //    rvRecipe.LocalReport.DisplayName = "Recipe Report  " + BatchId;
-        //    rvRecipe.RefreshReport();
-        //    #endregion
-        //}
         #region Get Data For Reports - Uniformity and Draw
         private void UFReport_Load(object sender, EventArgs e)
         {
@@ -111,10 +78,6 @@ namespace ALDReporting.UniformityReport
             return dtParameter;
         }
         #endregion
-
-
-
-
         private void LoadChart()
         {
             lblPStartDateTime.Text = Convert.ToString(DtForGraphCondition.Rows[0]["Process_Start_Date_Time"]);
@@ -166,7 +129,35 @@ namespace ALDReporting.UniformityReport
                     }
                 case 2:
                     {
-                        GetProductImages();
+                        try
+                        {
+
+                            DalProductImages dAlProductImages = new DalProductImages();
+                            var imgs = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = BatchId });
+                            if (ucProductImg == null)
+                            {
+                                if (imgs == null)
+                                    ucProductImg = new ucProductImg();
+                                else
+                                    ucProductImg = new ucProductImg(imgs.ImageBefore, imgs.ImageAfter);
+                                this.tabPage3.Controls.Add(ucProductImg);
+                            }
+                            ucProductImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
+                                                                                                | System.Windows.Forms.AnchorStyles.Bottom)
+                                                                                                | System.Windows.Forms.AnchorStyles.Left)
+                                                                                                | System.Windows.Forms.AnchorStyles.Right)));
+                            ucProductImg.Dock = DockStyle.Fill;
+                            ucProductImg.Location = new System.Drawing.Point(6, 6);
+                            ucProductImg.Name = "ucProductImg1";
+                            ucProductImg.Size = new System.Drawing.Size(920, 536);
+                            ucProductImg.TabIndex = 0;
+                            ucProductImg.BringToFront();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            throw;
+                        }
                         break;
                     }
                 case 3:
@@ -204,6 +195,20 @@ namespace ALDReporting.UniformityReport
             //System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();
             //doc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(panel5);
             //doc.Print();
+        }
+
+        private void btnPrintTrend_Click(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
+            Graphics mg = Graphics.FromImage(bmp);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            printPreviewDialog1.ShowDialog();
+        }
+        Bitmap bmp;
+        private void printDocumentUniTrend_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
         }
     }
 }

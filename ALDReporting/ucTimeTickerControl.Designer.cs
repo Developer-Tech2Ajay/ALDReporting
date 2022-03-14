@@ -35,10 +35,13 @@
             // 
             // lblTimerTick
             // 
+            this.lblTimerTick.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTimerTick.AutoSize = true;
             this.lblTimerTick.BackColor = System.Drawing.Color.Transparent;
             this.lblTimerTick.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimerTick.Location = new System.Drawing.Point(21, 0);
+            this.lblTimerTick.Location = new System.Drawing.Point(21, 5);
             this.lblTimerTick.Name = "lblTimerTick";
             this.lblTimerTick.Size = new System.Drawing.Size(45, 16);
             this.lblTimerTick.TabIndex = 0;

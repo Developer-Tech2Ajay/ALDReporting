@@ -38,8 +38,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblSystemName = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ucTimeTickerControl1 = new ALDReporting.ucTimeTickerControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -144,6 +148,42 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // lblSystemName
+            // 
+            this.lblSystemName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSystemName.AutoSize = true;
+            this.lblSystemName.BackColor = System.Drawing.Color.Transparent;
+            this.lblSystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemName.ForeColor = System.Drawing.Color.White;
+            this.lblSystemName.Location = new System.Drawing.Point(530, 412);
+            this.lblSystemName.Name = "lblSystemName";
+            this.lblSystemName.Size = new System.Drawing.Size(52, 17);
+            this.lblSystemName.TabIndex = 1;
+            this.lblSystemName.Text = "label3";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Help;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(630, 299);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 67);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // ucTimeTickerControl1
+            // 
+            this.ucTimeTickerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucTimeTickerControl1.BackColor = System.Drawing.Color.Transparent;
+            this.ucTimeTickerControl1.ForeColor = System.Drawing.Color.White;
+            this.ucTimeTickerControl1.Location = new System.Drawing.Point(533, 13);
+            this.ucTimeTickerControl1.Name = "ucTimeTickerControl1";
+            this.ucTimeTickerControl1.Size = new System.Drawing.Size(161, 28);
+            this.ucTimeTickerControl1.TabIndex = 2;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +191,9 @@
             this.BackgroundImage = global::ALDReporting.ProjectResource.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(712, 434);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.ucTimeTickerControl1);
+            this.Controls.Add(this.lblSystemName);
             this.Controls.Add(this.panel1);
             this.Name = "Login";
             this.Text = "Login";
@@ -158,7 +201,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -173,5 +218,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblSystemName;
+        private ucTimeTickerControl ucTimeTickerControl1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
