@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Entities
 {
@@ -11,7 +12,7 @@ namespace Entities
             DateTime expdate = DateTime.Now.AddDays(rInt);
 
             var machineName = System.Environment.MachineName;
-            if (!Constants.machineNames.Contains(machineName))
+            if (!Constants.machineNames.Contains(machineName,StringComparer.OrdinalIgnoreCase))
                 throw new InvalidException(user);
 
             if (DateTime.Now >= expdate)

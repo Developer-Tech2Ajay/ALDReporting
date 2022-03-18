@@ -1,4 +1,5 @@
 ﻿using ALD_DAL;
+using ALDReporting.CustomClass;
 using ALDReporting.ReportMethods;
 using Entities;
 using Microsoft.Reporting.WinForms;
@@ -24,11 +25,15 @@ namespace ALDReporting.UniformityReport
         public UFReport()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+            HelperMethods.HideShowRecipe(tabControl1, tabPage5);
         }
         public UFReport(string strBatchId)
         {
             InitializeComponent();
             BatchId = strBatchId;
+            WindowState = FormWindowState.Maximized;
+            HelperMethods.HideShowRecipe(tabControl1, tabPage5);
             //GetProductImages();
 
         }

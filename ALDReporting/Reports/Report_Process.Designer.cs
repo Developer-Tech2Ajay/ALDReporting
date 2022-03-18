@@ -39,6 +39,8 @@
             this.AlarmReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.spGetProcessDeatilsByBatchIDBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportDataSet = new ALDReporting.ReportDataSet();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -59,13 +61,13 @@
             this.sp_GetParameterByBatchIDTableAdapter1 = new ALDReporting.rptdsParameterTableAdapters.sp_GetParameterByBatchIDTableAdapter();
             this.printDocumentTrend = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.reportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportDataSet = new ALDReporting.ReportDataSet();
             this.sp_GetProcessDeatilsByBatchIDTableAdapter = new ALDReporting.ReportDataSetTableAdapters.sp_GetProcessDeatilsByBatchIDTableAdapter();
             this.sp_GetProcessDeatilsByBatchIDTableAdapter1 = new ALDReporting.ReportDataSet1TableAdapters.sp_GetProcessDeatilsByBatchIDTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.sp_GetProcessDeatilsByBatchIDBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlarmReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetProcessDeatilsByBatchIDBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -73,8 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartProcess)).BeginInit();
             this.panel5.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // AlarmReportBindingSource
@@ -90,16 +90,26 @@
             reportDataSource1.Value = this.sp_GetProcessDeatilsByBatchIDBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "ALDReporting.Reports.Rpt_Process.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(6, 0);
+            this.reportViewer1.Location = new System.Drawing.Point(3, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1435, 494);
+            this.reportViewer1.Size = new System.Drawing.Size(1435, 564);
             this.reportViewer1.TabIndex = 0;
             // 
             // spGetProcessDeatilsByBatchIDBindingSource
             // 
             this.spGetProcessDeatilsByBatchIDBindingSource.DataMember = "sp_GetProcessDeatilsByBatchID";
             this.spGetProcessDeatilsByBatchIDBindingSource.DataSource = this.reportDataSetBindingSource;
+            // 
+            // reportDataSetBindingSource
+            // 
+            this.reportDataSetBindingSource.DataSource = this.reportDataSet;
+            this.reportDataSetBindingSource.Position = 0;
+            // 
+            // reportDataSet
+            // 
+            this.reportDataSet.DataSetName = "ReportDataSet";
+            this.reportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabControl1
             // 
@@ -120,7 +130,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Blue;
+            this.tabPage1.BackColor = System.Drawing.Color.Transparent;
             this.tabPage1.Controls.Add(this.reportViewer1);
             this.tabPage1.ForeColor = System.Drawing.Color.White;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -136,7 +146,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(939, 646);
+            this.tabPage2.Size = new System.Drawing.Size(1187, 570);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Alarm Details";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -151,7 +161,7 @@
             this.RV_ProcessReportAlarm.Location = new System.Drawing.Point(3, 3);
             this.RV_ProcessReportAlarm.Name = "RV_ProcessReportAlarm";
             this.RV_ProcessReportAlarm.ServerReport.BearerToken = null;
-            this.RV_ProcessReportAlarm.Size = new System.Drawing.Size(933, 640);
+            this.RV_ProcessReportAlarm.Size = new System.Drawing.Size(1181, 564);
             this.RV_ProcessReportAlarm.TabIndex = 0;
             this.RV_ProcessReportAlarm.Load += new System.EventHandler(this.RV_ProcessReportAlarm_Load);
             // 
@@ -160,7 +170,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(939, 646);
+            this.tabPage3.Size = new System.Drawing.Size(1187, 570);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Product Images";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -171,7 +181,7 @@
             this.tabPage4.Controls.Add(this.panel5);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(939, 646);
+            this.tabPage4.Size = new System.Drawing.Size(1187, 570);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Trend";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -279,7 +289,7 @@
             this.tabPage5.Controls.Add(this.rvRecipe);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(939, 646);
+            this.tabPage5.Size = new System.Drawing.Size(1187, 570);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Recipe";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -291,7 +301,7 @@
             this.rvRecipe.Location = new System.Drawing.Point(0, 0);
             this.rvRecipe.Name = "rvRecipe";
             this.rvRecipe.ServerReport.BearerToken = null;
-            this.rvRecipe.Size = new System.Drawing.Size(939, 646);
+            this.rvRecipe.Size = new System.Drawing.Size(1187, 570);
             this.rvRecipe.TabIndex = 0;
             // 
             // btnPrintProcesRpt
@@ -325,16 +335,6 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // reportDataSetBindingSource
-            // 
-            this.reportDataSetBindingSource.DataSource = this.reportDataSet;
-            this.reportDataSetBindingSource.Position = 0;
-            // 
-            // reportDataSet
-            // 
-            this.reportDataSet.DataSetName = "ReportDataSet";
-            this.reportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // sp_GetProcessDeatilsByBatchIDTableAdapter
             // 
             this.sp_GetProcessDeatilsByBatchIDTableAdapter.ClearBeforeFill = true;
@@ -357,6 +357,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sp_GetProcessDeatilsByBatchIDBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlarmReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetProcessDeatilsByBatchIDBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -365,8 +367,6 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

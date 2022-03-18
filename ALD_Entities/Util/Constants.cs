@@ -56,7 +56,7 @@ namespace Entities
           "ALDIndia1075","ALDIndia1076","ALDIndia1077","ALDIndia1078","ALDIndia1079","ALDIndia1080","ALDIndia1081","ALDIndia1082",
           "ALDIndia1083","ALDIndia1084","ALDIndia1085","ALDIndia1086","ALDIndia1087","ALDIndia1088","ALDIndia1089","ALDIndia1090",
           "ALDIndia1091","ALDIndia1092","ALDIndia1093","ALDIndia1094","ALDIndia1095","ALDIndia1096","ALDIndia1097","ALDIndia1098",
-          "ALDIndia1099","ALDIndia1100","DESKTP-HR8BFNM","DESKTP-4HCPKO4","FurnacePC","DESKTOP-4HCPOK4","DESKTOP-3RBGSF1","WW" };
+          "ALDIndia1099","ALDIndia1100","DESKTP-HR8BFNM","DESKTP-4HCPKO4","FurnacePC","DESKTOP-4HCPOK4","DESKTOP-3rbGSF1","WW","DESKTOP-M9DI5PH" };
 
     }
 }

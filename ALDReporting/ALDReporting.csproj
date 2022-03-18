@@ -13,7 +13,7 @@
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>E:\ClientProjects\PublishedCode\15Mar2022\</PublishUrl>
+    <PublishUrl>E:\ClientProjects\PublishedCode\ALDReporting_18Mar2022\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -114,6 +114,7 @@
     </Compile>
     <Compile Include="CommonUtils.cs" />
     <Compile Include="CustomClass\CustomMessageBox.cs" />
+    <Compile Include="CustomClass\HelperMethods.cs" />
     <Compile Include="dsAuditLogReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

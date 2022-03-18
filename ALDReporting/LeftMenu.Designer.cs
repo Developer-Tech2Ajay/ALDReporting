@@ -234,6 +234,7 @@ namespace ALDReporting
             this.rdbtnAuditRpt.TabStop = true;
             this.rdbtnAuditRpt.Text = "Audit Report";
             this.rdbtnAuditRpt.UseVisualStyleBackColor = true;
+            this.rdbtnAuditRpt.Visible = false;
             // 
             // rdbtnAlarmRpt
             // 

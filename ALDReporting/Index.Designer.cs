@@ -19,7 +19,9 @@
             }
             base.Dispose(disposing);
         }
-
+        private System.Windows.Forms.Label lblWelcomeText;
+        private LeftMenu leftMenu1;
+        private ucHeader ucHeader1;
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -80,8 +82,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblWelcomeText;
-        private LeftMenu leftMenu1;
-        private ucHeader ucHeader1;
+      
     }
 }

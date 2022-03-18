@@ -1,4 +1,5 @@
 ﻿using ALD_DAL;
+using ALDReporting.CustomClass;
 using ALDReporting.ReportMethods;
 using Entities;
 using System;
@@ -22,13 +23,18 @@ namespace ALDReporting.LoadTcReport
         public LTReport()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+            HelperMethods.HideShowRecipe(tabControl1, tabPage5);
         }
         public LTReport(string strBatchID)
         {
             InitializeComponent();
             BatchID = strBatchID;
+            WindowState = FormWindowState.Maximized;
+            HelperMethods.HideShowRecipe(tabControl1, tabPage5);
 
         }
+        
         #region Get Data For Reports - Uniformity and Draw
         private void LTReport_Load(object sender, EventArgs e)
         {

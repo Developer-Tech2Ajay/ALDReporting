@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.58208cm</Width>
+              <Width>0.99666cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.15619cm</Width>
@@ -1059,7 +1059,7 @@
         <DataSetName>dsProcessByDuration</DataSetName>
         <Top>0.07056cm</Top>
         <Height>1.87cm</Height>
-        <Width>16.81582cm</Width>
+        <Width>17.23039cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

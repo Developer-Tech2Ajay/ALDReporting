@@ -2,6 +2,7 @@
 using iTextSharp.text.pdf;
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
@@ -65,17 +66,21 @@ namespace ALDReporting
 
         private void btnUniformityImagesPrint_Click(object sender, System.EventArgs e)
         {
+            System.Drawing.Rectangle captureRectangle = Screen.AllScreens[0].Bounds;
+            //Creating a new Bitmap object
+            captureBitmap = new Bitmap(1024, 768, PixelFormat.Format32bppArgb);
+            //Graphics g = this.CreateGraphics();
+            ////bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
+            //bmp = new Bitmap(Screen.PrimaryScreen.Bounds.Width + 10 , Screen.PrimaryScreen.Bounds.Height+ 10, g);
 
-            Graphics g = this.CreateGraphics();
-            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
-            Graphics mg = Graphics.FromImage(bmp);
-            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            Graphics mg = Graphics.FromImage(captureBitmap);
+            mg.CopyFromScreen(captureRectangle.Left,captureRectangle.Top, 0, 0, captureRectangle.Size);
             printPreviewDialog1.ShowDialog();
         }
-        Bitmap bmp;
+        Bitmap captureBitmap;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawImage(bmp, 0, 0);
+            e.Graphics.DrawImage(captureBitmap, 0, 0);
         }
     }
 }

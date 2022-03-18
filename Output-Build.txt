@@ -1,0 +1,9 @@
+﻿1>------ Build started: Project: ALDReporting, Configuration: Debug Any CPU ------
+1>E:\ClientProjects\ALD\ALDReporting\ALDReporting\AlarmReport\Report_Alarm.cs(44,30,44,32): warning CS0168: The variable 'ex' is declared but never used
+1>E:\ClientProjects\ALD\ALDReporting\ALDReporting\UniformityReport\UFReport.cs(157,42,157,44): warning CS0168: The variable 'ex' is declared but never used
+1>E:\ClientProjects\ALD\ALDReporting\ALDReporting\LoadTcReport\LTReport.cs(129,42,129,44): warning CS0168: The variable 'ex' is declared but never used
+1>E:\ClientProjects\ALD\ALDReporting\ALDReporting\ReportMethods\DataChart.cs(69,30,69,32): warning CS0168: The variable 'ex' is declared but never used
+1>E:\ClientProjects\ALD\ALDReporting\ALDReporting\Reports\Report_Process.cs(179,42,179,44): warning CS0168: The variable 'ex' is declared but never used
+1>E:\ClientProjects\ALD\ALDReporting\ALDReporting\Reports\Report_Audit.cs(41,30,41,32): warning CS0168: The variable 'ex' is declared but never used
+1>  ALDReporting -> E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\ALDReporting.exe
+========== Build: 1 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========

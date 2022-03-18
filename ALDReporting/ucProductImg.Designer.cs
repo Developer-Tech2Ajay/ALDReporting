@@ -100,16 +100,16 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.picAfterPStart);
-            this.panel3.Location = new System.Drawing.Point(465, 29);
+            this.panel3.Location = new System.Drawing.Point(432, 29);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(445, 500);
+            this.panel3.Size = new System.Drawing.Size(430, 500);
             this.panel3.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(72, 17);
+            this.label2.Location = new System.Drawing.Point(3, 1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 13);
             this.label2.TabIndex = 1;
@@ -117,7 +117,7 @@
             // 
             // picAfterPStart
             // 
-            this.picAfterPStart.Location = new System.Drawing.Point(3, 35);
+            this.picAfterPStart.Location = new System.Drawing.Point(3, 17);
             this.picAfterPStart.Name = "picAfterPStart";
             this.picAfterPStart.Size = new System.Drawing.Size(420, 450);
             this.picAfterPStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -132,14 +132,14 @@
             this.panel2.Controls.Add(this.picBeforePStart);
             this.panel2.Location = new System.Drawing.Point(3, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(450, 500);
+            this.panel2.Size = new System.Drawing.Size(427, 500);
             this.panel2.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(61, 14);
+            this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 13);
             this.label1.TabIndex = 2;
@@ -147,7 +147,7 @@
             // 
             // picBeforePStart
             // 
-            this.picBeforePStart.Location = new System.Drawing.Point(3, 32);
+            this.picBeforePStart.Location = new System.Drawing.Point(3, 17);
             this.picBeforePStart.Name = "picBeforePStart";
             this.picBeforePStart.Size = new System.Drawing.Size(420, 450);
             this.picBeforePStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;

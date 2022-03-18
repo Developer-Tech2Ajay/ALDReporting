@@ -24,15 +24,24 @@ namespace ALDReporting.Reports
         public Report_Process()
         {
             InitializeComponent();
+            HelperMethods.HideShowRecipe(tabControl1,tabPage5);
+            WindowState = FormWindowState.Maximized;
         }
+
+       
+
         public Report_Process(string strBatchId)
         {
             InitializeComponent();
             BatchID = strBatchId;
+            HelperMethods.HideShowRecipe(tabControl1, tabPage5);
+            WindowState = FormWindowState.Maximized;
         }
         public Report_Process(ReportRq reportRq)
         {
             InitializeComponent();
+            HelperMethods.HideShowRecipe(tabControl1, tabPage5);
+            WindowState = FormWindowState.Maximized;
         }
 
        
