@@ -82,6 +82,7 @@
             this.btnUniformityImagesPrint.TabIndex = 4;
             this.btnUniformityImagesPrint.Text = "Print";
             this.btnUniformityImagesPrint.UseVisualStyleBackColor = true;
+            this.btnUniformityImagesPrint.Visible = false;
             this.btnUniformityImagesPrint.Click += new System.EventHandler(this.btnUniformityImagesPrint_Click);
             // 
             // lblS1
@@ -117,6 +118,7 @@
             // 
             // picAfterPStart
             // 
+            this.picAfterPStart.Image = ((System.Drawing.Image)(resources.GetObject("picAfterPStart.Image")));
             this.picAfterPStart.Location = new System.Drawing.Point(3, 17);
             this.picAfterPStart.Name = "picAfterPStart";
             this.picAfterPStart.Size = new System.Drawing.Size(420, 450);
@@ -147,6 +149,7 @@
             // 
             // picBeforePStart
             // 
+            this.picBeforePStart.Image = ((System.Drawing.Image)(resources.GetObject("picBeforePStart.Image")));
             this.picBeforePStart.Location = new System.Drawing.Point(3, 17);
             this.picBeforePStart.Name = "picBeforePStart";
             this.picBeforePStart.Size = new System.Drawing.Size(420, 450);

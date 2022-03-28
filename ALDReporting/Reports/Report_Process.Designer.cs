@@ -233,6 +233,7 @@
             this.btnPrintTrend.TabIndex = 5;
             this.btnPrintTrend.Text = "Print Trend";
             this.btnPrintTrend.UseVisualStyleBackColor = true;
+            this.btnPrintTrend.Visible = false;
             this.btnPrintTrend.Click += new System.EventHandler(this.btnPrintTrend_Click);
             // 
             // lblPEndDateTime

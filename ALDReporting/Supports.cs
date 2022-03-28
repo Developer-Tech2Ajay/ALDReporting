@@ -27,5 +27,10 @@ namespace ALDReporting
         {
             System.Diagnostics.Process.Start("mailto:" + linkLabel1.Text);
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("mailto:" + linkLabel2.Text);
+        }
     }
 }

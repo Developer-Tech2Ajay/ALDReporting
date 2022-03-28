@@ -43,6 +43,7 @@ namespace ALDReporting.LoadTcReport
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnLoadTrend = new System.Windows.Forms.Button();
             this.lblPEndTime = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblPStartDateTime = new System.Windows.Forms.Label();
@@ -50,13 +51,12 @@ namespace ALDReporting.LoadTcReport
             this.chartProcess = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.rvRecipe = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.SystemVariablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.E_ParameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ProcessReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AlarmReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.printDocumentLoadTrend = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.btnLoadTrend = new System.Windows.Forms.Button();
+            this.SystemVariablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -64,10 +64,10 @@ namespace ALDReporting.LoadTcReport
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProcess)).BeginInit();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SystemVariablesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.E_ParameterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlarmReportBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SystemVariablesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -123,14 +123,12 @@ namespace ALDReporting.LoadTcReport
             // 
             // reportViewer2
             // 
-            this.reportViewer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "ALDReporting.AlarmReport.Report_Alarm.rdlc";
-            this.reportViewer2.Location = new System.Drawing.Point(7, 7);
+            this.reportViewer2.Location = new System.Drawing.Point(3, 3);
             this.reportViewer2.Name = "reportViewer2";
             this.reportViewer2.ServerReport.BearerToken = null;
-            this.reportViewer2.Size = new System.Drawing.Size(1055, 500);
+            this.reportViewer2.Size = new System.Drawing.Size(1181, 564);
             this.reportViewer2.TabIndex = 0;
             // 
             // tabPage3
@@ -164,6 +162,17 @@ namespace ALDReporting.LoadTcReport
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(883, 28);
             this.panel5.TabIndex = 5;
+            // 
+            // btnLoadTrend
+            // 
+            this.btnLoadTrend.Location = new System.Drawing.Point(783, 3);
+            this.btnLoadTrend.Name = "btnLoadTrend";
+            this.btnLoadTrend.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadTrend.TabIndex = 4;
+            this.btnLoadTrend.Text = "Print Trend";
+            this.btnLoadTrend.UseVisualStyleBackColor = true;
+            this.btnLoadTrend.Visible = false;
+            this.btnLoadTrend.Click += new System.EventHandler(this.btnLoadTrend_Click);
             // 
             // lblPEndTime
             // 
@@ -249,10 +258,6 @@ namespace ALDReporting.LoadTcReport
             this.rvRecipe.Size = new System.Drawing.Size(1187, 570);
             this.rvRecipe.TabIndex = 0;
             // 
-            // SystemVariablesBindingSource
-            // 
-            this.SystemVariablesBindingSource.DataSource = typeof(ALDReporting.SystemVariables);
-            // 
             // E_ParameterBindingSource
             // 
             this.E_ParameterBindingSource.DataSource = typeof(Entities.EParameter);
@@ -281,15 +286,9 @@ namespace ALDReporting.LoadTcReport
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // btnLoadTrend
+            // SystemVariablesBindingSource
             // 
-            this.btnLoadTrend.Location = new System.Drawing.Point(783, 3);
-            this.btnLoadTrend.Name = "btnLoadTrend";
-            this.btnLoadTrend.Size = new System.Drawing.Size(75, 23);
-            this.btnLoadTrend.TabIndex = 4;
-            this.btnLoadTrend.Text = "Print Trend";
-            this.btnLoadTrend.UseVisualStyleBackColor = true;
-            this.btnLoadTrend.Click += new System.EventHandler(this.btnLoadTrend_Click);
+            this.SystemVariablesBindingSource.DataSource = typeof(ALDReporting.SystemVariables);
             // 
             // LTReport
             // 
@@ -309,10 +308,10 @@ namespace ALDReporting.LoadTcReport
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProcess)).EndInit();
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SystemVariablesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.E_ParameterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlarmReportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SystemVariablesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

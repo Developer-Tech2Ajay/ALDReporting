@@ -31,17 +31,10 @@ namespace ALDReporting
         }
         private void SetProperties()
         {
-            var path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
-            var fullPath = Path.Combine(path + "\\images\\NotImageUploaded.png");
-            if (ImgBefore == null)
-                picBeforePStart.Image = System.Drawing.Image.FromFile(fullPath);
-            else
+            if (ImgBefore != null)
                 picBeforePStart.Image = System.Drawing.Image.FromFile(ImgBefore);
-            if (ImgAfter == null)
-                picAfterPStart.Image = System.Drawing.Image.FromFile(fullPath);
-            else
+            if (ImgAfter != null)
                 picAfterPStart.Image = System.Drawing.Image.FromFile(ImgAfter);
-
             ScaleImage();
 
         }
@@ -74,7 +67,7 @@ namespace ALDReporting
             //bmp = new Bitmap(Screen.PrimaryScreen.Bounds.Width + 10 , Screen.PrimaryScreen.Bounds.Height+ 10, g);
 
             Graphics mg = Graphics.FromImage(captureBitmap);
-            mg.CopyFromScreen(captureRectangle.Left,captureRectangle.Top, 0, 0, captureRectangle.Size);
+            mg.CopyFromScreen(captureRectangle.Left-5,captureRectangle.Top -5 , 0, 0, captureRectangle.Size);
             printPreviewDialog1.ShowDialog();
         }
         Bitmap captureBitmap;

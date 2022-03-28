@@ -89,11 +89,11 @@ namespace ALDReporting
             BindDropDown(cmbProcessBatch, lstDdlProcess);
 
             //Fill Uniformity
-            var lstDdlUniformity = lstDdl.AsEnumerable().Where(x =>
-                    x.Batch_Select == Constants.BatchTypeUniformity ||
-                    string.IsNullOrWhiteSpace(x.Batch_Select))
-                .ToList();
-            BindDropDown(cmbUniformityBatch, lstDdlUniformity);
+            //var lstDdlUniformity = lstDdl.AsEnumerable().Where(x =>
+            //        x.Batch_Select == Constants.BatchTypeUniformity ||
+            //        string.IsNullOrWhiteSpace(x.Batch_Select))
+            //    .ToList();
+            //BindDropDown(cmbUniformityBatch, lstDdlUniformity);
 
 
             //Fill Uniformity
@@ -155,15 +155,15 @@ namespace ALDReporting
                         }
                     case StaticValues.ReportType_Uniformity:
                         {
-                            if (cmbUniformityBatch.SelectedIndex == 0)
-                            {
-                                _sMsg.StatusCode = 1;
-                                _sMsg.StatusMsg = "Please select batch to see report !!";
-                            }
-                            else
-                            {
-                                _sMsg = CheckProductImages(cmbUniformityBatch.Text);
-                            }
+                            //if (cmbUniformityBatch.SelectedIndex == 0)
+                            //{
+                            //    _sMsg.StatusCode = 1;
+                            //    _sMsg.StatusMsg = "Please select batch to see report !!";
+                            //}
+                            //else
+                            //{
+                            //    _sMsg = CheckProductImages(cmbUniformityBatch.Text);
+                            //}
                             break;
                         }
                     case StaticValues.ReportType_LoadTC:
@@ -242,8 +242,8 @@ namespace ALDReporting
             ReportClass.BatchID = string.Empty;
             if (cmbProcessBatch.SelectedIndex > 0)
                 ReportClass.BatchID = cmbProcessBatch.Text;
-            else if (cmbUniformityBatch.SelectedIndex > 0)
-                ReportClass.BatchID = cmbUniformityBatch.Text;
+            //else if (cmbUniformityBatch.SelectedIndex > 0)
+            //    ReportClass.BatchID = cmbUniformityBatch.Text;
             else if (cmbLoadTCBatch.SelectedIndex > 0)
                 ReportClass.BatchID = cmbLoadTCBatch.Text;
 
@@ -290,7 +290,7 @@ namespace ALDReporting
         {
             var lstCkBox = new List<ComboBox>();
             lstCkBox.Add(cmbProcessBatch);
-            lstCkBox.Add(cmbUniformityBatch);
+            //lstCkBox.Add(cmbUniformityBatch);
             lstCkBox.Add(cmbLoadTCBatch);
 
             switch (rptType)
@@ -303,8 +303,8 @@ namespace ALDReporting
                     }
                 case StaticValues.ReportType_Uniformity:
                     {
-                        lstCkBox.Remove(cmbUniformityBatch);
-                        SetIndex(lstCkBox);
+                        //lstCkBox.Remove(cmbUniformityBatch);
+                        //SetIndex(lstCkBox);
                         break;
                     }
                 case StaticValues.ReportType_LoadTC:
@@ -346,19 +346,19 @@ namespace ALDReporting
         {
             SystemMessage sMsg = new SystemMessage();
             sMsg = CheckBatchBeforeOpen(StaticValues.ReportType_Uniformity);
-            if (sMsg.StatusCode == 0)
-                OpenReportWindow(StaticValues.ReportType_Uniformity, cmbUniformityBatch.Text);
-            else if (sMsg.StatusCode == 2) //Warning and confirmation box
-            {
-                var result = CustomMessageBox.ShowConfimationBox(sMsg.StatusMsg);
-                if (result == DialogResult.Yes)
-                    OpenReportWindow(StaticValues.ReportType_Uniformity, cmbUniformityBatch.Text);
+            //if (sMsg.StatusCode == 0)
+            //    OpenReportWindow(StaticValues.ReportType_Uniformity, cmbUniformityBatch.Text);
+            //else if (sMsg.StatusCode == 2) //Warning and confirmation box
+            //{
+            //    var result = CustomMessageBox.ShowConfimationBox(sMsg.StatusMsg);
+            //    if (result == DialogResult.Yes)
+            //        OpenReportWindow(StaticValues.ReportType_Uniformity, cmbUniformityBatch.Text);
 
-            }
-            else
-            {
-                CustomMessageBox.Custom(sMsg.StatusMsg);
-            }
+            //}
+            //else
+            //{
+            //    CustomMessageBox.Custom(sMsg.StatusMsg);
+            //}
         }
         private void btnLoadTC_Click(object sender, EventArgs e)
         {
@@ -393,11 +393,11 @@ namespace ALDReporting
                 _instanceAr = new Report_Alarm(req);
                 _instanceAr.Show();
             }
-            else if (rdbtnAuditRpt.Checked)
-            {
-                _instanceAuditR = new ReportAudit(req);
-                _instanceAuditR.Show();
-            }
+            ////else if (rdbtnAuditRpt.Checked)
+            ////{
+            ////    _instanceAuditR = new ReportAudit(req);
+            ////    _instanceAuditR.Show();
+            ////}
             else if (rdbtnProcRpt.Checked)
             {
                 _instancePrDur = new ProcessByDuration(req);

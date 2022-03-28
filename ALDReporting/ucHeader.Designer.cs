@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucHeader));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.ucTimeTickerControl1 = new ALDReporting.ucTimeTickerControl();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -51,6 +51,15 @@
             this.panel1.Size = new System.Drawing.Size(792, 84);
             this.panel1.TabIndex = 3;
             // 
+            // ucTimeTickerControl1
+            // 
+            this.ucTimeTickerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucTimeTickerControl1.Location = new System.Drawing.Point(622, 42);
+            this.ucTimeTickerControl1.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.ucTimeTickerControl1.Name = "ucTimeTickerControl1";
+            this.ucTimeTickerControl1.Size = new System.Drawing.Size(159, 40);
+            this.ucTimeTickerControl1.TabIndex = 2;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Black;
@@ -62,15 +71,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
-            // 
-            // ucTimeTickerControl1
-            // 
-            this.ucTimeTickerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucTimeTickerControl1.Location = new System.Drawing.Point(622, 42);
-            this.ucTimeTickerControl1.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.ucTimeTickerControl1.Name = "ucTimeTickerControl1";
-            this.ucTimeTickerControl1.Size = new System.Drawing.Size(159, 40);
-            this.ucTimeTickerControl1.TabIndex = 2;
             // 
             // pictureBox1
             // 

@@ -1,11 +1,12 @@
 ﻿using ALDReporting.CustomClass;
-using ALDReporting.Reports;
+using ALDReporting.Reports;////
 using System;
 using System.Configuration;
 using System.Text;
 using System.Windows.Forms;
 using Entities;
 using ALD_DAL;
+using System.Reflection;
 
 namespace ALDReporting
 {
@@ -16,7 +17,7 @@ namespace ALDReporting
             InitializeComponent();
             //FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
-            lblSystemName.Text = System.Environment.MachineName;
+            lblSystemName.Text = Convert.ToString(System.IO.File.GetCreationTime(Assembly.GetExecutingAssembly().Location)); //System.Environment.MachineName;
         }
 
         private void Login_Load(object sender, System.EventArgs e)
@@ -80,7 +81,7 @@ namespace ALDReporting
 
             if (sbMsg.Length == 0)
             {
-                if (DbAccess.GetAuth(txtboxUserName.Text.Trim(), txtPswd.Text.Trim(), Constants.GetAuth,Constants.ConnStringReport))
+                if (DbAccess.GetAuth(txtboxUserName.Text.Trim(), txtPswd.Text.Trim(), Constants.GetAuth, Constants.ConnStringReport))
                     return true;
                 else
                     sbMsg.AppendLine("Please entry a valid user name and password");
@@ -93,7 +94,6 @@ namespace ALDReporting
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Supports supports = new Supports();
-            supports.Closed += (s, args) => this.Close();
             supports.Show();
         }
     }

@@ -34,15 +34,10 @@ namespace ALDReporting
             this.lblBatchID = new System.Windows.Forms.Label();
             this.btnVRProcess = new System.Windows.Forms.Button();
             this.cmbProcessBatch = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnUniFormity = new System.Windows.Forms.Button();
-            this.cmbUniformityBatch = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtEndTime = new System.Windows.Forms.DateTimePicker();
             this.dtStartTime = new System.Windows.Forms.DateTimePicker();
             this.rdbtnProcRpt = new System.Windows.Forms.RadioButton();
-            this.rdbtnAuditRpt = new System.Windows.Forms.RadioButton();
             this.rdbtnAlarmRpt = new System.Windows.Forms.RadioButton();
             this.dtPEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblEndDateTime = new System.Windows.Forms.Label();
@@ -57,7 +52,6 @@ namespace ALDReporting
             this.btnLoadTC = new System.Windows.Forms.Button();
             this.cmbLoadTCBatch = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -114,63 +108,11 @@ namespace ALDReporting
             this.cmbProcessBatch.TabIndex = 2;
             this.cmbProcessBatch.SelectionChangeCommitted += new System.EventHandler(this.cmbProcessBatch_SelectionChangeCommitted);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.btnUniFormity);
-            this.groupBox2.Controls.Add(this.cmbUniformityBatch);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 120);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Size = new System.Drawing.Size(290, 100);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Uniformity Report";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(21, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Uniformity Batch ID";
-            // 
-            // btnUniFormity
-            // 
-            this.btnUniFormity.BackColor = System.Drawing.Color.Navy;
-            this.btnUniFormity.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUniFormity.ForeColor = System.Drawing.Color.White;
-            this.btnUniFormity.Location = new System.Drawing.Point(21, 64);
-            this.btnUniFormity.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnUniFormity.Name = "btnUniFormity";
-            this.btnUniFormity.Size = new System.Drawing.Size(251, 25);
-            this.btnUniFormity.TabIndex = 7;
-            this.btnUniFormity.Text = "VIEW REPORT";
-            this.btnUniFormity.UseVisualStyleBackColor = false;
-            this.btnUniFormity.Click += new System.EventHandler(this.btnUniFormity_Click);
-            // 
-            // cmbUniformityBatch
-            // 
-            this.cmbUniformityBatch.FormattingEnabled = true;
-            this.cmbUniformityBatch.Location = new System.Drawing.Point(21, 37);
-            this.cmbUniformityBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cmbUniformityBatch.Name = "cmbUniformityBatch";
-            this.cmbUniformityBatch.Size = new System.Drawing.Size(251, 21);
-            this.cmbUniformityBatch.TabIndex = 2;
-            this.cmbUniformityBatch.SelectionChangeCommitted += new System.EventHandler(this.cmbUniformityBatch_SelectionChangeCommitted);
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dtEndTime);
             this.groupBox4.Controls.Add(this.dtStartTime);
             this.groupBox4.Controls.Add(this.rdbtnProcRpt);
-            this.groupBox4.Controls.Add(this.rdbtnAuditRpt);
             this.groupBox4.Controls.Add(this.rdbtnAlarmRpt);
             this.groupBox4.Controls.Add(this.dtPEndDate);
             this.groupBox4.Controls.Add(this.lblEndDateTime);
@@ -178,7 +120,7 @@ namespace ALDReporting
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.btnTimeBaseReport);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(14, 332);
+            this.groupBox4.Location = new System.Drawing.Point(15, 226);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -214,7 +156,7 @@ namespace ALDReporting
             // rdbtnProcRpt
             // 
             this.rdbtnProcRpt.AutoSize = true;
-            this.rdbtnProcRpt.Location = new System.Drawing.Point(24, 56);
+            this.rdbtnProcRpt.Location = new System.Drawing.Point(23, 39);
             this.rdbtnProcRpt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rdbtnProcRpt.Name = "rdbtnProcRpt";
             this.rdbtnProcRpt.Size = new System.Drawing.Size(112, 17);
@@ -222,19 +164,7 @@ namespace ALDReporting
             this.rdbtnProcRpt.TabStop = true;
             this.rdbtnProcRpt.Text = "Process Report";
             this.rdbtnProcRpt.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnAuditRpt
-            // 
-            this.rdbtnAuditRpt.AutoSize = true;
-            this.rdbtnAuditRpt.Location = new System.Drawing.Point(23, 36);
-            this.rdbtnAuditRpt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.rdbtnAuditRpt.Name = "rdbtnAuditRpt";
-            this.rdbtnAuditRpt.Size = new System.Drawing.Size(96, 17);
-            this.rdbtnAuditRpt.TabIndex = 12;
-            this.rdbtnAuditRpt.TabStop = true;
-            this.rdbtnAuditRpt.Text = "Audit Report";
-            this.rdbtnAuditRpt.UseVisualStyleBackColor = true;
-            this.rdbtnAuditRpt.Visible = false;
+            this.rdbtnProcRpt.Visible = false;
             // 
             // rdbtnAlarmRpt
             // 
@@ -314,7 +244,7 @@ namespace ALDReporting
             this.groupBox5.Controls.Add(this.btnUploadImagesAfter);
             this.groupBox5.Controls.Add(this.btnUploadImagesBefore);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(15, 530);
+            this.groupBox5.Location = new System.Drawing.Point(15, 439);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -357,7 +287,7 @@ namespace ALDReporting
             this.groupBox3.Controls.Add(this.btnLoadTC);
             this.groupBox3.Controls.Add(this.cmbLoadTCBatch);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(14, 226);
+            this.groupBox3.Location = new System.Drawing.Point(13, 120);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -413,15 +343,12 @@ namespace ALDReporting
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "LeftMenu";
-            this.Size = new System.Drawing.Size(309, 633);
+            this.Size = new System.Drawing.Size(309, 542);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -437,10 +364,6 @@ namespace ALDReporting
         private System.Windows.Forms.Label lblBatchID;
         private System.Windows.Forms.Button btnVRProcess;
         private System.Windows.Forms.ComboBox cmbProcessBatch;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnUniFormity;
-        private System.Windows.Forms.ComboBox cmbUniformityBatch;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DateTimePicker dtPEndDate;
         private System.Windows.Forms.Label lblEndDateTime;
@@ -455,7 +378,6 @@ namespace ALDReporting
         private System.Windows.Forms.Button btnLoadTC;
         private System.Windows.Forms.ComboBox cmbLoadTCBatch;
         private System.Windows.Forms.RadioButton rdbtnProcRpt;
-        private System.Windows.Forms.RadioButton rdbtnAuditRpt;
         private System.Windows.Forms.RadioButton rdbtnAlarmRpt;
         private System.Windows.Forms.DateTimePicker dtEndTime;
         private System.Windows.Forms.DateTimePicker dtStartTime;

@@ -154,7 +154,8 @@ namespace ALDReporting.Reports
                     }
                 case 1:
                     {
-                        var dataAlarm = new DataAlarm(RV_ProcessReportAlarm, process_startDateTime, process_endDateTime);
+                        var dataAlarm = new DataAlarm(RV_ProcessReportAlarm, Convert.ToDateTime(process_startDateTime), Convert.ToDateTime(process_endDateTime));
+                        //var dataAlarm = new DataAlarm(RV_ProcessReportAlarm, process_startDateTime, process_endDateTime);
                         this.RV_ProcessReportAlarm.RefreshReport();
                         break;
                     }
