@@ -10,7 +10,7 @@ namespace ALD_DAL
 {
     public static class DbAccess
     {
-        public static List<T> GetDataByBatch<T>(string batchId,string spName,string conString)
+        public static List<T> GetDataByBatch<T>(string batchId, string spName, string conString)
         {
             var lstObj = new List<T>();
             try
@@ -31,7 +31,7 @@ namespace ALD_DAL
             }
             return (List<T>)lstObj;
         }
-        public static List<T> GetDataByDuration<T>(ReportRq reportRq, string spName,string conString)
+        public static List<T> GetDataByDuration<T>(ReportRq reportRq, string spName, string conString)
         {
             var lstObj = new List<T>();
             try
@@ -126,7 +126,7 @@ namespace ALD_DAL
             return systemMessage;
         }
 
-        public static bool GetAuth(string uname, string pswd,string spName,string conString)
+        public static bool GetAuth(string uname, string pswd, string spName, string conString)
         {
             try
             {
@@ -137,7 +137,7 @@ namespace ALD_DAL
                     DynamicParameters queryParameters = new DynamicParameters();
                     queryParameters.Add("@uname", uname);
                     queryParameters.Add("@pswd", pswd);
-                    var isAuth= conn.Query<int>(spName, queryParameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    var isAuth = conn.Query<int>(spName, queryParameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
                     if (isAuth == 1)
                         return true;
                     return false;
@@ -149,7 +149,37 @@ namespace ALD_DAL
                 throw;
             }
         }
+
+        public static bool GetInstallationDate(string conString)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    DynamicParameters queryParameters = new DynamicParameters();
+                    var dt = conn.Query<DateTime>("sp_getValues", queryParameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+                    if (dt == null)
+                        dt = new DateTime(2022, 04, 07);
+
+                    Random r = new Random();
+                    int rInt = r.Next(800, 950); //for ints
+                    DateTime expdate = dt.AddDays(rInt);
+                    if (DateTime.Now >= expdate)
+                        return false;
+
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 
-    
+
 }

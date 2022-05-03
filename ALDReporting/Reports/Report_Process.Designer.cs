@@ -39,12 +39,10 @@
             this.AlarmReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.spGetProcessDeatilsByBatchIDBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportDataSet = new ALDReporting.ReportDataSet();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.RV_ProcessReportAlarm = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.rptProc_AlarmRpt = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.chartProcess = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -61,20 +59,22 @@
             this.sp_GetParameterByBatchIDTableAdapter1 = new ALDReporting.rptdsParameterTableAdapters.sp_GetParameterByBatchIDTableAdapter();
             this.printDocumentTrend = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.reportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportDataSet = new ALDReporting.ReportDataSet();
             this.sp_GetProcessDeatilsByBatchIDTableAdapter = new ALDReporting.ReportDataSetTableAdapters.sp_GetProcessDeatilsByBatchIDTableAdapter();
             this.sp_GetProcessDeatilsByBatchIDTableAdapter1 = new ALDReporting.ReportDataSet1TableAdapters.sp_GetProcessDeatilsByBatchIDTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.sp_GetProcessDeatilsByBatchIDBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlarmReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetProcessDeatilsByBatchIDBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProcess)).BeginInit();
             this.panel5.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // AlarmReportBindingSource
@@ -101,23 +101,13 @@
             this.spGetProcessDeatilsByBatchIDBindingSource.DataMember = "sp_GetProcessDeatilsByBatchID";
             this.spGetProcessDeatilsByBatchIDBindingSource.DataSource = this.reportDataSetBindingSource;
             // 
-            // reportDataSetBindingSource
-            // 
-            this.reportDataSetBindingSource.DataSource = this.reportDataSet;
-            this.reportDataSetBindingSource.Position = 0;
-            // 
-            // reportDataSet
-            // 
-            this.reportDataSet.DataSetName = "ReportDataSet";
-            this.reportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
@@ -140,30 +130,28 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Process Report";
             // 
-            // tabPage2
+            // tabPage6
             // 
-            this.tabPage2.Controls.Add(this.RV_ProcessReportAlarm);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1187, 570);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Alarm Details";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage6.Controls.Add(this.rptProc_AlarmRpt);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1187, 570);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Alarm Report";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // RV_ProcessReportAlarm
+            // rptProc_AlarmRpt
             // 
-            this.RV_ProcessReportAlarm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rptProc_AlarmRpt.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource2.Name = "dsReport_Alarm";
             reportDataSource2.Value = this.AlarmReportBindingSource;
-            this.RV_ProcessReportAlarm.LocalReport.DataSources.Add(reportDataSource2);
-            this.RV_ProcessReportAlarm.LocalReport.ReportEmbeddedResource = "ALDReporting.AlarmReport.Report_Alarm.rdlc";
-            this.RV_ProcessReportAlarm.Location = new System.Drawing.Point(3, 3);
-            this.RV_ProcessReportAlarm.Name = "RV_ProcessReportAlarm";
-            this.RV_ProcessReportAlarm.ServerReport.BearerToken = null;
-            this.RV_ProcessReportAlarm.Size = new System.Drawing.Size(1181, 564);
-            this.RV_ProcessReportAlarm.TabIndex = 0;
-            this.RV_ProcessReportAlarm.Load += new System.EventHandler(this.RV_ProcessReportAlarm_Load);
+            this.rptProc_AlarmRpt.LocalReport.DataSources.Add(reportDataSource2);
+            this.rptProc_AlarmRpt.LocalReport.ReportEmbeddedResource = "ALDReporting.AlarmReport.Report_Alarm.rdlc";
+            this.rptProc_AlarmRpt.Location = new System.Drawing.Point(0, 0);
+            this.rptProc_AlarmRpt.Name = "rptProc_AlarmRpt";
+            this.rptProc_AlarmRpt.ServerReport.BearerToken = null;
+            this.rptProc_AlarmRpt.Size = new System.Drawing.Size(1187, 570);
+            this.rptProc_AlarmRpt.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -335,6 +323,16 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // reportDataSetBindingSource
+            // 
+            this.reportDataSetBindingSource.DataSource = this.reportDataSet;
+            this.reportDataSetBindingSource.Position = 0;
+            // 
+            // reportDataSet
+            // 
+            this.reportDataSet.DataSetName = "ReportDataSet";
+            this.reportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // sp_GetProcessDeatilsByBatchIDTableAdapter
             // 
             this.sp_GetProcessDeatilsByBatchIDTableAdapter.ClearBeforeFill = true;
@@ -357,16 +355,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.sp_GetProcessDeatilsByBatchIDBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlarmReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetProcessDeatilsByBatchIDBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartProcess)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,7 +379,6 @@
         private ReportDataSetTableAdapters.sp_GetProcessDeatilsByBatchIDTableAdapter sp_GetProcessDeatilsByBatchIDTableAdapter;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private ReportDataSet1TableAdapters.sp_GetProcessDeatilsByBatchIDTableAdapter sp_GetProcessDeatilsByBatchIDTableAdapter1;
@@ -392,7 +389,6 @@
         private System.Windows.Forms.Label lblStartDateTime;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblPStartDateTime;
-        private Microsoft.Reporting.WinForms.ReportViewer RV_ProcessReportAlarm;
         private System.Windows.Forms.BindingSource AlarmReportBindingSource;
         private System.Windows.Forms.TabPage tabPage5;
         private Microsoft.Reporting.WinForms.ReportViewer rvRecipe;
@@ -401,6 +397,8 @@
         private System.Windows.Forms.Button btnPrintTrend;
         private System.Drawing.Printing.PrintDocument printDocumentTrend;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.TabPage tabPage6;
+        private Microsoft.Reporting.WinForms.ReportViewer rptProc_AlarmRpt;
         //private ucProductImg ucProductImg1;
     }
 }

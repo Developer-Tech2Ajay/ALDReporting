@@ -16,7 +16,6 @@ E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\SqlServerTypes\x64\msvcr120
 E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
-E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\ALD_DAL.dll.config
 E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\ALD_DAL.dll
 E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\ALD_DAL.pdb
 E:\ClientProjects\ALD\ALDReporting\ALD_DAL\bin\Debug\ALD_Entities.dll

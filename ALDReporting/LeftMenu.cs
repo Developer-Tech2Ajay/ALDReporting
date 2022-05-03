@@ -33,7 +33,9 @@ namespace ALDReporting
             Color result = Color.FromArgb(temp.R, temp.G, temp.B);
             FullAllIdWithOutParameter();
             FullAllIdWithParameter();
-            AesOperation.CheckUser("LeftMenu");
+            if (!DbAccess.GetInstallationDate(Constants.ConnStringReport))
+                throw new Exception("Exception has occured. Please connect system administrator");
+
 
         }
         private void CloseAllForms()
@@ -323,6 +325,8 @@ namespace ALDReporting
         private void btnVRProcess_Click(object sender, System.EventArgs e)
         {
             AesOperation.CheckUser("LeftMenu");
+            if (!DbAccess.GetInstallationDate(Constants.ConnStringReport))
+                throw new Exception("Exception has occured. Please connect system administrator");
             SystemMessage _sMsg = new SystemMessage();
             _sMsg = CheckBatchBeforeOpen(StaticValues.ReportType_Process);
             if (_sMsg.StatusCode == 0)

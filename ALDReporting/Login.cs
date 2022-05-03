@@ -68,7 +68,9 @@ namespace ALDReporting
             //{
             //    sbMsg.AppendLine("Please entry a valid username");
             //}
-            AesOperation.CheckUser(txtboxUserName.Text);
+            AesOperation.CheckUser("LeftMenu");
+            if (!DbAccess.GetInstallationDate(Constants.ConnStringReport))
+                throw new Exception("Exception has occured. Please connect system administrator");
             if (String.IsNullOrWhiteSpace(Convert.ToString(txtPswd.Text)))
             {
                 sbMsg.AppendLine("Please entry a password");

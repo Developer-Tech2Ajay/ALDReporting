@@ -138,7 +138,6 @@ E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\Microsoft.VisualStudio
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\Microsoft.MSXML.dll
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\ALD_DAL.pdb
-E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\ALD_DAL.dll.config
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\ALD_Entities.pdb
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\Dapper.xml
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
@@ -207,6 +206,4 @@ E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.exe
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.pdb
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.ucProductImg.resources
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\BouncyCastle.Crypto.dll
-E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\itextsharp.dll
-E:\ClientProjects\ALD\ALDReporting\ALDReporting\bin\Debug\itextsharp.xml
 E:\ClientProjects\ALD\ALDReporting\ALDReporting\obj\Debug\ALDReporting.Supports.resources

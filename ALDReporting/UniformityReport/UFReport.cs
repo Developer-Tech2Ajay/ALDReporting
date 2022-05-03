@@ -6,6 +6,8 @@ using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -142,9 +144,9 @@ namespace ALDReporting.UniformityReport
                             if (ucProductImg == null)
                             {
                                 if (imgs == null)
-                                    ucProductImg = new ucProductImg();
+                                    ucProductImg = new ucProductImg(BatchId);
                                 else
-                                    ucProductImg = new ucProductImg(imgs.ImageBefore, imgs.ImageAfter);
+                                    ucProductImg = new ucProductImg(imgs.ImageBefore, imgs.ImageAfter, BatchId);
                                 this.tabPage3.Controls.Add(ucProductImg);
                             }
                             ucProductImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
@@ -204,11 +206,23 @@ namespace ALDReporting.UniformityReport
 
         private void btnPrintTrend_Click(object sender, EventArgs e)
         {
-            Graphics g = this.CreateGraphics();
-            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
-            Graphics mg = Graphics.FromImage(bmp);
-            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
-            printPreviewDialog1.ShowDialog();
+            ScreenCapture sc = new ScreenCapture();
+            // capture entire screen, and save it to a file
+            var img = sc.CaptureScreen();
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string folderName = BatchId.Replace(' ', '-').Replace(':', '-'); ;
+            string fullPath = desktopPath + "\\ALDReporting\\" + folderName;
+            if (!File.Exists(fullPath))
+                System.IO.Directory.CreateDirectory(fullPath);
+            // capture this window, and save it
+            sc.CaptureWindowToFile(this.Handle, Path.Combine(fullPath, "Trend.jpeg"), ImageFormat.Jpeg);
+            // capture this window, and save it
+            //sc.CaptureWindowToFile(this.Handle, Path.Combine(fullPath, "Trend.jpeg"), ImageFormat.Jpeg);
+            //Graphics g = this.CreateGraphics();
+            //bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
+            //Graphics mg = Graphics.FromImage(bmp);
+            //mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            //printPreviewDialog1.ShowDialog();
         }
         Bitmap bmp;
         private void printDocumentUniTrend_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

@@ -5,7 +5,9 @@ using Entities;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Printing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ALDReporting.Reports
@@ -24,11 +26,11 @@ namespace ALDReporting.Reports
         public Report_Process()
         {
             InitializeComponent();
-            HelperMethods.HideShowRecipe(tabControl1,tabPage5);
+            HelperMethods.HideShowRecipe(tabControl1, tabPage5);
             WindowState = FormWindowState.Maximized;
         }
 
-       
+
 
         public Report_Process(string strBatchId)
         {
@@ -44,7 +46,7 @@ namespace ALDReporting.Reports
             WindowState = FormWindowState.Maximized;
         }
 
-       
+
         private DataTable GetProcessReportData()
         {
             var dal = new DalReport();
@@ -98,7 +100,6 @@ namespace ALDReporting.Reports
         {
             ReportBind();
             this.reportViewer1.RefreshReport();
-           
         }
 
 
@@ -109,7 +110,7 @@ namespace ALDReporting.Reports
             ReportBind();
             this.reportViewer1.PrintDialog();
             AlarmReport();
-            this.RV_ProcessReportAlarm.PrintDialog();
+            this.rptProc_AlarmRpt.PrintDialog();
             LoadChart();
             DataRecipe = new DataRecipe(this.rvRecipe, BatchID);
             this.rvRecipe.PrintDialog();
@@ -154,23 +155,24 @@ namespace ALDReporting.Reports
                     }
                 case 1:
                     {
-                        var dataAlarm = new DataAlarm(RV_ProcessReportAlarm, process_startDateTime, process_endDateTime);
-                        this.RV_ProcessReportAlarm.RefreshReport();
+                        this.rptProc_AlarmRpt.LocalReport.DataSources.Clear();
+                        var dataalarm = new DataAlarm(rptProc_AlarmRpt, Convert.ToDateTime(process_startDateTime), Convert.ToDateTime(process_endDateTime));
+                        this.rptProc_AlarmRpt.RefreshReport();
                         break;
                     }
                 case 2:
                     {
                         try
                         {
-                            
+
                             DalProductImages dAlProductImages = new DalProductImages();
                             var imgs = dAlProductImages.GetProductImages(new ReqByBatchId() { BatchId = BatchID });
                             if (ucProductImg == null)
                             {
                                 if (imgs == null)
-                                    ucProductImg = new ucProductImg();
+                                    ucProductImg = new ucProductImg(BatchID);
                                 else
-                                    ucProductImg = new ucProductImg(imgs.ImageBefore, imgs.ImageAfter);
+                                    ucProductImg = new ucProductImg(imgs.ImageBefore, imgs.ImageAfter, BatchID);
                                 this.tabPage3.Controls.Add(ucProductImg);
                             }
                             ucProductImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
@@ -210,11 +212,23 @@ namespace ALDReporting.Reports
 
         private void btnPrintTrend_Click(object sender, EventArgs e)
         {
-            Graphics g = this.CreateGraphics();
-            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
-            Graphics mg = Graphics.FromImage(bmp);
-            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
-            printPreviewDialog1.ShowDialog();
+            ScreenCapture sc = new ScreenCapture();
+            // capture entire screen, and save it to a file
+            var img = sc.CaptureScreen();
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string folderName = BatchID.Replace(' ', '-').Replace(':', '-'); ;
+            string fullPath = desktopPath + "\\ALDReporting\\" + folderName;
+            if (!File.Exists(fullPath))
+                System.IO.Directory.CreateDirectory(fullPath);
+
+            // capture this window, and save it
+            sc.CaptureWindowToFile(this.Handle, Path.Combine(fullPath, "Trend.jpeg"), ImageFormat.Jpeg);
+
+            //Graphics g = this.CreateGraphics();
+            //bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
+            //Graphics mg = Graphics.FromImage(bmp);
+            //mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            //printPreviewDialog1.ShowDialog();
 
         }
         Bitmap bmp;
