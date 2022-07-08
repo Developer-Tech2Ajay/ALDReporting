@@ -20,3 +20,4 @@ E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csproj.Co
 E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csproj.CopyComplete
 E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.dll
 E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.pdb
+E:\ClientProjects\ALD\ALDReporting\ALD_Entities\obj\Debug\ALD_Entities.csprojAssemblyReference.cache

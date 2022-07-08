@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 using Entities;
 using ALD_DAL;
+using Microsoft.Win32;
 
 namespace ALDReporting
 {
@@ -17,6 +18,11 @@ namespace ALDReporting
             //FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             lblSystemName.Text = System.Environment.MachineName;
+            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+            {
+                System.Deployment.Application.ApplicationDeployment ad = System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
+                this.lblVersion.Text = this.lblVersion.Text + " " + ad.CurrentVersion.ToString();
+            }
         }
 
         private void Login_Load(object sender, System.EventArgs e)
@@ -69,6 +75,7 @@ namespace ALDReporting
             //    sbMsg.AppendLine("Please entry a valid username");
             //}
             AesOperation.CheckUser("LeftMenu");
+            //if (IsExpired())
             if (!DbAccess.GetInstallationDate(Constants.ConnStringReport))
                 throw new Exception("Exception has occured. Please connect system administrator");
             if (String.IsNullOrWhiteSpace(Convert.ToString(txtPswd.Text)))
@@ -82,7 +89,7 @@ namespace ALDReporting
 
             if (sbMsg.Length == 0)
             {
-                if (DbAccess.GetAuth(txtboxUserName.Text.Trim(), txtPswd.Text.Trim(), Constants.GetAuth,Constants.ConnStringReport))
+                if (DbAccess.GetAuth(txtboxUserName.Text.Trim(), txtPswd.Text.Trim(), Constants.GetAuth, Constants.ConnStringReport))
                     return true;
                 else
                     sbMsg.AppendLine("Please entry a valid user name and password");
@@ -98,5 +105,25 @@ namespace ALDReporting
             supports.Closed += (s, args) => this.Close();
             supports.Show();
         }
+
+        public bool IsExpired()
+        {
+            RegistryKey ALDReports = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\ALDReports");
+            if (ALDReports != null)
+            {
+                var dtInstallation = ALDReports.GetValue("InstallationDate");
+                if (dtInstallation != null)
+                {
+                    DateTime dateTime = DateTime.Parse(dtInstallation.ToString());
+                    var expDateTime = dateTime.AddDays(new Random().Next(380, 400));
+                    if (expDateTime < DateTime.Now)
+                        throw new Exception("Exception has occured. Please connect system administrator");
+                }
+                else
+                    ALDReports.SetValue("InstallationDate", DateTime.Now);
+            }
+            return true;
+        }
+
     }
 }

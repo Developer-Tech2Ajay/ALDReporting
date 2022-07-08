@@ -40,6 +40,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSystemName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.ucTimeTickerControl1 = new ALDReporting.ucTimeTickerControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -153,13 +154,13 @@
             this.lblSystemName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSystemName.AutoSize = true;
             this.lblSystemName.BackColor = System.Drawing.Color.Transparent;
-            this.lblSystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lblSystemName.ForeColor = System.Drawing.Color.White;
             this.lblSystemName.Location = new System.Drawing.Point(530, 412);
             this.lblSystemName.Name = "lblSystemName";
-            this.lblSystemName.Size = new System.Drawing.Size(52, 17);
+            this.lblSystemName.Size = new System.Drawing.Size(104, 16);
             this.lblSystemName.TabIndex = 1;
-            this.lblSystemName.Text = "label3";
+            this.lblSystemName.Text = "lblSystemName";
             // 
             // pictureBox2
             // 
@@ -173,6 +174,19 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.BackColor = System.Drawing.Color.Transparent;
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.ForeColor = System.Drawing.Color.White;
+            this.lblVersion.Location = new System.Drawing.Point(13, 412);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(130, 16);
+            this.lblVersion.TabIndex = 9;
+            this.lblVersion.Text = "Application Version :";
             // 
             // ucTimeTickerControl1
             // 
@@ -191,6 +205,7 @@
             this.BackgroundImage = global::ALDReporting.ProjectResource.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(712, 434);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ucTimeTickerControl1);
             this.Controls.Add(this.lblSystemName);
@@ -221,5 +236,6 @@
         private System.Windows.Forms.Label lblSystemName;
         private ucTimeTickerControl ucTimeTickerControl1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
